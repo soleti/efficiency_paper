@@ -240,7 +240,7 @@ In the future, the method described in this paper will be adapted to use the dat
 \section{The Muon Counter System}\label{sec:proc}
 The Muon Counter System (MuCS), described in detail in \cite{mucs}, consists of two sets of planar modules made up of scintillator strips placed into two separate, light-tight boxes. Each planar module is made up of two sets of 24 scintillator strips, 4 cm wide, arranged into bi-layers oriented perpendicular to each other. Each strip contains a wavelength shifting fiber, connected to a Multi-Anode PMT. The Multi-Anode PMTs are read out by a DAQ system, separated from the DAQ system that reads out the TPC and PMT systems of the main detector.
 
-As shown in Figure \ref{fig:boxes}, a signal in one strip corresponds to a MuCS hit and, combining the MuCS hits in each bi-layer, it is possible to obtain two position coordinates of the crossing points of the cosmic rays ($z$ and $x$ in the MicroBooNE TPC coordinate system, shown in figure \ref{fig:coord}) . The height of the modules (corresponding to the $y$ coordinate in the MicroBooNE TPC coordinate system), known to a precision of 0.5 cm, allows us to extrapolate a three-dimensional trajectory of the cosmic ray.
+As shown in Figure \ref{fig:boxes}, a signal in one strip corresponds to a MuCS hit and, combining the MuCS hits in each bi-layer, it is possible to obtain two position coordinates of the crossing points of the cosmic rays ($z$ and $x$ in the MicroBooNE TPC coordinate system, shown in figure \ref{fig:coord}). The height of the modules (corresponding to the $y$ coordinate in the MicroBooNE TPC coordinate system), known to a precision of 0.5 cm, allows us to extrapolate a three-dimensional trajectory of the cosmic ray down to the TPC, which we define as a MuCS-extrapolated track.
 \begin{figure}[htbp]
   \begin{center}
     \includegraphics[width=0.7\linewidth]{figures/boxes.png}
@@ -294,17 +294,20 @@ The data follows a processing path that merges the MuCS hit patterns and extrapo
 %   \caption{Flowchart showing the procedure used to generate the dataset used in this analysis. We end up with two data products: one with extrapolated coordinates obtained using MuCS-only data and one with reconstructed TPC tracks and PMT flashes, if present.} \label{fig:scheme}
 % \end{figure}
 
-The hits in the MuCS are used to obtain a point for each box and extrapolate a track (MuCS-extrapolated track). The signals of the hit wires form the TPC hits, that are fed to the MicroBooNE reconstruction chain. The reconstructed track with the closest starting point to the intersection of the MuCS-extrapolated track with the TPC is stored in the dataset and it is defined as a MuCS-tagged track. The distance $d$ between these two points is defined as:
+The hits in the MuCS are used to obtain a point for each box and extrapolate a track through the TPC (MuCS-extrapolated track), as described in section \ref{sec:proc}. The ionized electrons generate a signal in the TPC wires to form the TPC hits, that are then fed to the MicroBooNE reconstruction chain and used by the track reconstruction algorithms to form the reconstructed tracks.
+
+The first intersection point between the MuCS-extrapolated track and the TPC is defined as $(x_{\mathrm{MuCS}}$, $y_{\mathrm{MuCS}}$, $z_{\mathrm{MuCS}})$. The reconstructed track with the closest starting point to the MuCS-extrapolated track intersection point is stored in the dataset and it is defined as a MuCS-tagged track. The distance $d$ between these two points is defined as:
 \begin{equation}\label{eq:d}
 d = \sqrt{(x_{\mathrm{MuCS}}-x_{\mathrm{reco}})^2+(y_{\mathrm{MuCS}}-y_{\mathrm{reco}})^2+(z_{\mathrm{MuCS}}-z_{\mathrm{reco}})^2},
 \end{equation}
-where $(x_{\mathrm{MuCS}},y_{\mathrm{MuCS}},z_{\mathrm{MuCS}})$ and $(x_{\mathrm{reco}},y_{\mathrm{reco}},z_{\mathrm{reco}})$ are the coordinates of the intersection of the MuCS-extrapolated track with the TPC and of the start of the closest reconstructed track, respectively. We know that the space charge effect can displace the start and end points of the reconstructed tracks by a sensible amount (around 15 cm for points near the cathode), so we correct these displacemenents with the procedure described in \cite{sce}.
-A PMT flash is associated with the MuCS signal if it falls within a well-known window with respect to the MuCS trigger.
+where $(x_{\mathrm{reco}},y_{\mathrm{reco}},z_{\mathrm{reco}})$ is the starting point of the MuCS-tagged track.  %We know that the space charge effect can displace the start and end points of the reconstructed tracks by a sensible amount (around 15 cm for points near the cathode), so we correct these displacemenents with the procedure described in \cite{sce}.
+%A PMT flash is associated with the MuCS signal if it falls within a well-known window with respect to the MuCS trigger.
 Figure \ref{fig:evd} shows a diagram with the MuCS-tagged track, the MuCS-extrapolated track and the other reconstructed cosmic-ray tracks in the same readout window.
 
 \begin{figure}[htbp]
   \begin{center}
-  \includegraphics[width=0.50\linewidth]{figures/evd.pdf}  \vspace{1.8em}\includegraphics[width=0.40\linewidth]{figures/evd_display.png}
+  \includegraphics[width=0.50\linewidth]{figures/evd.pdf}
+  \includegraphics[width=0.40\linewidth]{figures/evd_display.png}
 
   \caption{Left: bi-dimensional view of a MuCS event. The black line shows the MuCS-extrapolated track, while the green line corresponds to the MuCS-tagged track. The black and green points correspond to the $(x_{\mathrm{MuCS}},y_{\mathrm{MuCS}},z_{\mathrm{MuCS}})$ and $(x_{\mathrm{reco}},y_{\mathrm{reco}},z_{\mathrm{reco}})$ coordinates, respectively. The red vertical line on the left border corresponds to the position of the PMT flash associated to the MuCS-tagged track. Right: corresponding portion of the event display for the collection plane, showing the MuCS-tagged track.} \label{fig:evd}
 \end{center}
