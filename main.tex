@@ -244,7 +244,7 @@ As shown in Figure \ref{fig:boxes}, a signal in one strip corresponds to a MuCS 
 \begin{figure}[htbp]
   \begin{center}
     \includegraphics[width=0.7\linewidth]{figures/boxes.png}
-    \caption{A cosmic ray passing through the MuCS boxes will hit the scintillator stripes, producing a signal that will correspond to a MuCS hit. From the height of the panels and the position of the hit stripes it is then possible to extrapolate the trajectory of the cosmic ray.} \label{fig:boxes}
+    \caption{A cosmic ray passing through the MuCS boxes will hit the scintillator stripes, producing a signal that will correspond to a MuCS hit. From the height of the panels and the position of the hit stripes (in red) it is possible to extrapolate the trajectory of the cosmic ray.} \label{fig:boxes}
   \end{center}
 \end{figure}
 
@@ -442,7 +442,7 @@ Our efficiency can then be plotted as a three-dimensional histogram: each bin wi
 
 \subsection{Systematic uncertainties}
 
-\subsection{Decay-in-flight or captured muons}\label{sec:dif}
+\subsubsection{Decay-in-flight or captured muons}\label{sec:dif}
 The cosmic muons hitting the MuCS can decay in flight or be captured before reaching the TPC. In this case, they trigger the MuCS but do not generate a cosmic track in the detector. Since in our definition of the data reconstruction efficiency $\epsilon_{\mathrm{data}}$, eq. \eqref{eq:eff}, the denominator corresponds to the number of MuCS-triggered events, we need to correct for this effect. From our MuCS Monte Carlo simulation we measured the fraction of cosmic rays that go through the MuCS but decay or are captured before reaching the LArTPC:
 \begin{equation}
 D = \frac{\mathrm{N.~of~decayed/captured~muons}}{\mathrm{N.~of~MuCS~triggered~events}} = 1.0 \pm 0.1~\%.
