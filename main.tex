@@ -294,7 +294,7 @@ The data follows a processing path that merges the MuCS hit patterns and extrapo
 %   \caption{Flowchart showing the procedure used to generate the dataset used in this analysis. We end up with two data products: one with extrapolated coordinates obtained using MuCS-only data and one with reconstructed TPC tracks and PMT flashes, if present.} \label{fig:scheme}
 % \end{figure}
 
-The hits in the MuCS are used to obtain a point for each box and extrapolate a track through the TPC (MuCS-extrapolated track), as described in section \ref{sec:proc}. The ionized electrons generate a signal in the TPC wires to form the TPC hits, that are then fed to the MicroBooNE reconstruction chain and used by the track reconstruction algorithms to form the reconstructed tracks.
+The hits in the MuCS are used to obtain a point for each box and extrapolate a track through the TPC (MuCS-extrapolated track), as described in section \ref{sec:proc}. The ionized electrons generate a signal in the TPC wires to form the TPC hits, that are then fed to the MicroBooNE reconstruction chain and used by the track reconstruction algorithms provided by the Pandora framework \cite{pandora} to form the reconstructed tracks.
 
 The first intersection point between the MuCS-extrapolated track and the TPC is defined as $(x_{\mathrm{MuCS}}$, $y_{\mathrm{MuCS}}$, $z_{\mathrm{MuCS}})$. However, because of the multiple Coulomb scattering between the MuCS boxes and the TPC, the starting point of the reconstructed track corresponding to the MuCS-triggering cosmic ray does not coincide with the intersection point $(x_{\mathrm{MuCS}}$, $y_{\mathrm{MuCS}}$, $z_{\mathrm{MuCS}})$.
 
@@ -658,25 +658,25 @@ This material is based upon work supported by the following: the U.S. Department
 % We suggest to always provide author, title and journal data:
 % in short all the informations that clearly identify a document.
 \begin{thebibliography}{99}
-  \bibitem{miniboone} A.~A.~Aguilar-Arevalo et al. [MiniBooNE Collaboration], \textit{Improved Search for $\bar \nu_\mu \rightarrow \bar \nu_e$ Oscillations in the MiniBooNE Experiment}, Phys.\ Rev.\ Lett.\  {\bf 110} (2013) 161801 \texttt{doi:10.1103/PhysRevLett.110.161801 [hep-ex/1303.2588]}.
-
   \bibitem{detector} R. Acciarri, et al. [MicroBooNE Collaboration], \textit{Design and Construction of the MicroBooNE Detector}, 2016  [\href{https://arxiv.org/abs/1612.05824}{\texttt{hep-ex/1612.05824}}].
 
+  \bibitem{miniboone} A.~A.~Aguilar-Arevalo et al. [MiniBooNE Collaboration], \textit{Improved Search for $\bar \nu_\mu \rightarrow \bar \nu_e$ Oscillations in the MiniBooNE Experiment}, Phys.\ Rev.\ Lett.\  {\bf 110} (2013) 161801 \texttt{doi:10.1103/PhysRevLett.110.161801 [hep-ex/1303.2588]}.
+
   \bibitem{dune} R.~Acciarri, et al. [DUNE Collaboration], \textit{Long-Baseline Neutrino Facility (LBNF) and Deep Underground Neutrino Experiment (DUNE) : Volume 1: The LBNF and DUNE Projects}, [\href{https://arxiv.org/abs/1601.05471}{\texttt{ins-det/1601.05471}}].
-
-  %\bibitem{pandoracosmic} R. Acciarri, et al. [MicroBooNE Collaboration], \textit{The Pandora multi-algorithm approach to automated pattern recognition in LAr TPC detectors}, 2016  [\href{http://www-microboone.fnal.gov/publications/publicnotes/index.html}{MICROBOONE-NOTE-1015-PUB}].
-
-  \bibitem{pandora} J.~S.~Marshall and M.~A.~Thomson, \textit{The Pandora Software Development Kit for Pattern Recognition}, Eur.\ Phys.\ J.\ C 75, no. 9, 439 (2015) \texttt{doi:10.1140/epjc/s10052\-015-3659-3} \texttt{[\href{https://arxiv.org/abs/1506.05348}{data-an/1506.05348}]}.
-
-  \bibitem{crt} M. Auger, et al., \textit{A Novel Cosmic Ray Tagger System for Liquid Argon TPC Neutrino Detectors}, submitted to Instruments, \texttt{[\href{https://arxiv.org/abs/1612.04614}{ins-det/1612.04614}]}.
-
-  \bibitem{mucs} S.R. Soleti, \textit{The Muon Counter System for the MicroBooNE experiment}, eConf C151216, \texttt{[\href{https://arxiv.org/abs/1604.07858}{ins-det/1604.07858}]}.
 
   \bibitem{mcdata} R. Acciarri, et al. [MicroBooNE Collaboration], \textit{A Comparison of Monte-Carlo Simulations and Data from MicroBooNE}, 2016 [\href{http://www-microboone.fnal.gov/publications/publicnotes/index.html}{MICROBOONE-NOTE-1014-PUB}].
 
   \bibitem{cosmic} R. Acciarri, et al. [MicroBooNE Collaboration], \textit{Cosmic Shielding Studies at MicroBooNE}, 2016 [\href{http://www-microboone.fnal.gov/publications/publicnotes/index.html}{MICROBOONE-NOTE-1005-PUB}].
 
-  \bibitem{sce} R. Acciarri, et al. [MicroBooNE Collaboration], \textit{Space Charge Effect Measurements and Corrections}, 2016 [\href{http://www-microboone.fnal.gov/publications/publicnotes/index.html}{MICROBOONE-NOTE-1018-PUB}].
+  \bibitem{crt} M. Auger, et al., \textit{A Novel Cosmic Ray Tagger System for Liquid Argon TPC Neutrino Detectors}, submitted to Instruments, \texttt{[\href{https://arxiv.org/abs/1612.04614}{ins-det/1612.04614}]}.
+
+  \bibitem{mucs} S.R. Soleti, \textit{The Muon Counter System for the MicroBooNE experiment}, eConf C151216, \texttt{[\href{https://arxiv.org/abs/1604.07858}{ins-det/1604.07858}]}.
+
+  \bibitem{pandora} R. Acciarri, et al. [MicroBooNE Collaboration], \textit{The Pandora multi-algorithm approach to automated pattern recognition in LAr TPC detectors}, 2016  [\href{http://www-microboone.fnal.gov/publications/publicnotes/index.html}{MICROBOONE-NOTE-1015-PUB}].
+
+  %\bibitem{pandora} J.~S.~Marshall and M.~A.~Thomson, \textit{The Pandora Software Development Kit for Pattern Recognition}, Eur.\ Phys.\ J.\ C 75, no. 9, 439 (2015) \texttt{doi:10.1140/epjc/s10052\-015-3659-3} \texttt{[\href{https://arxiv.org/abs/1506.05348}{data-an/1506.05348}]}.
+
+  \bibitem{pdg} C.~Patrignani, et al. [Particle Data Group Collaboration], \textit{Review of Particle Physics}, Chin.\ Phys.\ C 40 (2016) no.10,  100001 \texttt{doi:10.1088/1674-1137/40/10/100001}.
 
   \bibitem{corsika} D.~Heck, et al.,
   \textit{CORSIKA: A Monte Carlo code to simulate extensive air showers}, 1998,
@@ -684,9 +684,9 @@ This material is based upon work supported by the following: the U.S. Department
 
   \bibitem{geant} S.~Agostinelli, et al. [GEANT4 Collaboration], \textit{GEANT4: A Simulation toolkit}, Nucl.\ Instrum.\ Meth.\ A {506}, 250 (2003).
 
-  \bibitem{besiii} W.~L.~Yuan, et al., \textit{Study of tracking efficiency and its systematic uncertainty from $J/\psi \to p \overline{p} \pi^+ \pi^-$ at BESIII}, Chin.\ Phys.\ C 40 (2016) no.2,  026201 \texttt{doi:10.1088/1674-1137/40/2/026201}  \texttt{[\href{https://arxiv.org/abs/1506.05348}{hep-ex/1507.03453}]}.
+  \bibitem{sce} R. Acciarri, et al. [MicroBooNE Collaboration], \textit{Space Charge Effect Measurements and Corrections}, 2016 [\href{http://www-microboone.fnal.gov/publications/publicnotes/index.html}{MICROBOONE-NOTE-1018-PUB}].
 
-  \bibitem{pdg} C.~Patrignani, et al. [Particle Data Group Collaboration], \textit{Review of Particle Physics}, Chin.\ Phys.\ C 40 (2016) no.10,  100001 \texttt{doi:10.1088/1674-1137/40/10/100001}.
+  \bibitem{besiii} W.~L.~Yuan, et al., \textit{Study of tracking efficiency and its systematic uncertainty from $J/\psi \to p \overline{p} \pi^+ \pi^-$ at BESIII}, Chin.\ Phys.\ C 40 (2016) no.2,  026201 \texttt{doi:10.1088/1674-1137/40/2/026201}  \texttt{[\href{https://arxiv.org/abs/1506.05348}{hep-ex/1507.03453}]}.
 
 
 % Please avoid comments such as "For a review'', "For some examples",
