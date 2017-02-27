@@ -461,7 +461,7 @@ Moreover, since the data sample is measured in three specific parts of the detec
 The multiple Coulomb scattering of the cosmic ray in the material depends on the energy of the cosmic ray \cite{pdg}. Cosmic rays that scatter more have a higher probability to be outside the $d_{\mathrm{max}}$ cut and they are also more difficult to reconstruct. Thus, it can happen that in the ($\theta$, $\phi$, $L$) bins where the data reconstruction efficiency has been measured with low statistics, the MuCS cosmic rays can be distributed in a small region of the energy spectrum, which is very steep \cite{corsika}. This sampling effect could bias the measurement of the reconstruction efficiency. However,  this systematic effect has been verified to be negligible with the present level of statistics (smaller than 0.1\%).
 
 \subsubsection{Decay-in-flight or captured muons}\label{sec:dif}
-The cosmic muons hitting the MuCS can decay in flight or be captured before reaching the TPC. In this case, they trigger the MuCS but do not generate a cosmic track in the detector. Since in our definition of the data reconstruction efficiency $\epsilon_{\mathrm{data}}$, eq. \eqref{eq:eff}, the denominator corresponds to the number of MuCS-triggered events, and this effect needs to be corrected. From our MuCS Monte Carlo simulation, the fraction $D$ of cosmic rays that go through the MuCS but decay or are captured before reaching the LArTPC has been measured as:
+The cosmic muons hitting the MuCS can decay in flight or be captured before reaching the TPC. In this case, they trigger the MuCS but do not generate a cosmic track in the detector. Since in our definition of the data reconstruction efficiency $\epsilon_{\mathrm{data}}$, eq. \eqref{eq:eff}, the denominator corresponds to the number of MuCS-triggered events, and this effect needs to be corrected. The fraction $D$ of cosmic rays that go through the MuCS but decay or are captured before reaching the TPC has been measured from the MuCS Monte Carlo simulation as:
 \begin{equation}
 D = \frac{\mathrm{N.~of~decayed/captured~muons}}{\mathrm{N.~of~MuCS~triggered~events}} = 1.0 \pm 0.1~\%.
 \end{equation}
@@ -472,13 +472,13 @@ This correction factor has been verified to be independent from $\theta$, $\phi$
 The statistical uncertainty of the correcting factor $D$, 0.1\%, is considered as the systematic uncertainty related to this correction.
 
 \subsubsection{Detector non-uniformities}\label{sec:wires}
-The presence of detector non-uniformities can introduce a systematic uncertainty in the measurement of the reconstruction efficiency. In particular, the presence of noisy or unresponsive wires in specific regions of the detector can lower the reconstruction efficiency in some of our three datasets. However, the different configurations allow us to cover different regions of the TPC, providing information on potential non-uniformities.
+A potential presence of detector non-uniformities can introduce a systematic uncertainty in the measurement of the reconstruction efficiency. In particular, the presence of noisy or unresponsive wires in specific regions of the detector can lower the reconstruction efficiency in some of our three datasets. However, the three different MuCS configurations (shown in figure \ref{fig:mucs}) allow us to cover different regions of the TPC, providing information on potential non-uniformities.
 
 To check if these non-uniformities introduce a systematic effect, the significance $\sigma$ of the differences between the data reconstruction efficiencies measured in two different configurations with the following definition has been calculated:
 \begin{equation}
 \sigma = \frac{\epsilon_a-\epsilon_b}{\sqrt{\Delta \epsilon_{a}^2 + \Delta \epsilon_b^2}},
 \end{equation}
-where $\epsilon_{a}$ ($\epsilon_{b}$) is the reconstruction efficiency in the $a$ ($b$) configuration and $\Delta \epsilon_{a}$ ($\Delta \epsilon_{b}$) is the corresponding statistical error. This significance has been measured for each corresponding $\theta,\phi,L$ bin and for each possible combination of central, downstream and upstream configuration (described in section \ref{sec:proc}). If there is a systematic effect, the standard deviation of the significances distribution should be larger than unity. In our case, the Gaussian fit of the distribution gives $\sigma = 1.54\pm0.12$.
+where $\epsilon_{a}$ ($\epsilon_{b}$) is the reconstruction efficiency in the arbitrary $a$ ($b$) configuration and $\Delta \epsilon_{a}$ ($\Delta \epsilon_{b}$) is the corresponding statistical error. This significance has been measured for each corresponding $\theta,\phi,L$ bin and for each possible combination of central, downstream and upstream configuration (described in section \ref{sec:proc}). In presence of a systematic effect, the standard deviation of the significances distribution would be larger than unity. In our case, the Gaussian fit of the distribution gives $\sigma = 1.54\pm0.12$, suggesting detector non-uniformity.
 
 % \begin{figure}[htbp]
 %   \begin{center}
@@ -508,7 +508,7 @@ where $\epsilon_{a}$ ($\epsilon_{b}$) is the reconstruction efficiency in the $a
 %   \caption{Reconstruction efficiency for each geometrical configuration with a difference significance larger than 3. The lowest value is reported in bold.}\label{tab:significance}
 % \end{table}
 
-As we can see, the configuration with the lowest reconstruction efficiency in these cases is always the upstream one. The drawing of the extrapolated tracks that correspond to bins with a significance larger than 3 shows that, for the upstream configuration, the corresponding cosmic rays go through regions with noisy or unresponsive wires in one of the induction planes (figure \ref{fig:wires}).
+The configuration with the lowest reconstruction efficiency in these cases is always the upstream one. Cosmic rays corresponding to bins with a large $\sigma$ have been studied to find the source of the non-uniformities. The drawing of the MuCS-extrapolated tracks that correspond to bins with a significance larger than 3 shows that, for the upstream configuration, the corresponding cosmic rays go through regions with noisy or unresponsive wires in one of the induction planes (figure \ref{fig:wires}).
 
 \begin{figure}[htbp]
   \begin{center}
@@ -518,7 +518,7 @@ As we can see, the configuration with the lowest reconstruction efficiency in th
 \end{figure}
 
 
-Moreover, since their $\theta$ angle is close to $90^\circ$, they are also aligned with the wires of the collection plane. Thus, these cosmic rays have few hits in two of the three planes and the algorithm is not able to reconstruct a track. Figure \ref{fig:example} shows a non-reconstructed MuCS cosmic ray going through the region with missing wires and parallel to the collection plane wires.
+Moreover, since the $\theta$ angle of the MuCS-extrapolated tracks is close to $90^\circ$, they are also aligned with the wires of the collection plane, parallel to the $y$ axis. Thus, these cosmic rays have few hits in two of the three planes and the algorithm is not able to reconstruct a track. Figure \ref{fig:example} shows the event display of a non-reconstructed MuCS cosmic ray going through the region with missing wires and parallel to the collection plane wires.
 
 \begin{figure}[htbp]
   \begin{center}
@@ -537,7 +537,7 @@ Moreover, since their $\theta$ angle is close to $90^\circ$, they are also align
   \end{center}
 \end{figure}
 
-The systematic uncertainty related to the detector non-uniformities for each $\theta,\phi,L$ bin is quoted as the difference between the best reconstruction efficiency of the three configurations and the overall reconstruction efficiency (obtained merging the three datasets), a method described in \cite{besiii}. The overall systematic uncertainty resulted to be 1.1\%, that is the difference between the overall reconstruction efficiency of the best configuration and the overall reconstruction efficiency of the merged sample.\\
+The systematic uncertainty related to the detector non-uniformities for each $\theta,\phi,L$ bin is quoted as the difference between the best reconstruction efficiency of the three configurations and the overall reconstruction efficiency (obtained merging the three datasets), a method described in \cite{besiii}. The overall systematic uncertainty, calculated as the difference between the overall reconstruction efficiency of the best configuration and the overall reconstruction efficiency of the merged sample, is 1.1\%.
 
 
 %\subsection{Energy sampling}
@@ -637,7 +637,7 @@ However, the coverage of the ($\theta, \phi, L$) parameter space provided by the
 \begin{figure}[htbp]
   \begin{center}
     \includegraphics[width=0.7\linewidth]{figures/crt.png}
-    \caption{Monte Carlo simulation of the coverage on the ($\theta,\phi$) plane of both the MuCS (light blue) and the CRT (dark blue).} \label{fig:crt}
+    \caption{Monte Carlo simulation of the coverage in the ($\theta,\phi$) plane for both the MuCS (light blue), as presented in this paper, and the CRT system(dark blue).} \label{fig:crt}
   \end{center}
 \end{figure}
 
