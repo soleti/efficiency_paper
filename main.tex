@@ -458,6 +458,7 @@ The efficiency can then be plotted as a three-dimensional histogram: each bin wi
 \subsection{Systematic uncertainties}
 The measurement of the reconstruction efficiency can be affected by several systematic effects. First of all, we normalize the number of reconstructed MuCS cosmic rays with the number of MuCS-triggered events, as shown in eq. \eqref{eq:eff}. However, some cosmic muon can decay or be stopped before reaching the TPC and they are then impossible to reconstruct. This effect is described in section \ref{sec:dif}.
 Moreover, since the data sample is measured in three specific parts of the detector, the presence of noisy or unresponsive wires could bias the measurement of the reconstruction efficiency. The systematic uncertainty related to this effect is evaluated in section \ref{sec:wires}.
+
 The multiple Coulomb scattering of the cosmic ray in the material depends on the energy of the cosmic ray \cite{pdg}. Cosmic rays that scatter more have a higher probability to be outside the $d_{\mathrm{max}}$ cut and they are also more difficult to reconstruct. Thus, it can happen that in the ($\theta$, $\phi$, $L$) bins where the data reconstruction efficiency has been measured with low statistics, the MuCS cosmic rays can be distributed in a small region of the energy spectrum, which is very steep \cite{corsika}. This sampling effect could bias the measurement of the reconstruction efficiency. However,  this systematic effect has been verified to be negligible with the present level of statistics (smaller than 0.1\%).
 
 \subsubsection{Decay-in-flight or captured muons}\label{sec:dif}
@@ -513,7 +514,7 @@ The configuration with the lowest reconstruction efficiency in these cases is al
 \begin{figure}[htbp]
   \begin{center}
     \includegraphics[width=1\linewidth]{figures/wire_tracks.png}
-    \caption{Bi-dimensional plot of the collected charge, showing the regions with missing wires on one of the induction planes (left) and extrapolated tracks corresponding to bins with a significance larger than 3 (right). As shown by the picture on the right, the tracks in the upstream part of the detector (low $z$) go through a region with several missing wires.} \label{fig:wires}
+    \caption{Bi-dimensional plot of the collected charge during a cosmic-ray run, showing the regions with missing wires on one of the induction planes (left) and extrapolated tracks corresponding to bins with a significance larger than 3 (right). As shown by the picture on the right, the tracks in the upstream part of the detector (low $z$) go through a region with several missing wires.} \label{fig:wires}
   \end{center}
 \end{figure}
 
@@ -559,7 +560,8 @@ The systematic uncertainty related to the detector non-uniformities for each $\t
 %In order to verify if this sampling introduces a systematic effect, we choose the bin with the lowest number of MuCS events, which is 19. We then performed a Monte Carlo simulation, generating one thousand pseudo-experiments with 19 MuCS events sampled from the CORSIKA cosmic-ray energy spectrum with the same starting angles and length of our chosen bin. We filled a histogram with the value of the reconstruction efficiency for each pseudo-experiment and fitted the distribution with a Gaussian (figure \ref{fig:sampling}). The $\sigma$ of the fit is $0.084$, compatible with the statistical error of the same bin which is $0.083$. Thus, we conclude that the energy sampling of the cosmic rays does not introduce a systematic effect.
 
 \subsection{Data/Monte Carlo comparison}\label{sec:datamc}
-Having included the correction given by the decayed or captured muons and the systematic uncertainty related to the detector non-uniformities, it is possible to compare the data and Monte Carlo reconstruction efficiencies. The three-dimensional efficiency plots shown in figure \ref{fig:3d} can be projected on the bi-dimensional planes ($\theta,\phi$), ($\theta,L$), ($\phi,L$), shown in figure \ref{fig:2d} and on the single axis $\theta$, $\phi$, $L$, shown in figure \ref{fig:1d}.
+The reconstruction efficiencies were calculated for Monte Carlo and data, including the correction given by the decayed or captured muons and the systematic uncertainty related to the detector non-uniformities.
+For clarity, the three-dimensional efficiency plots shown in figure \ref{fig:3d} can be projected on the bi-dimensional planes ($\theta,\phi$), ($\theta,L$), ($\phi,L$), shown in figure \ref{fig:2d}, and on the single axis $\theta$, $\phi$, $L$, shown in figure \ref{fig:1d}.
 
 
 \begin{figure}[htbp]
@@ -613,7 +615,9 @@ Having included the correction given by the decayed or captured muons and the sy
   \end{center}
 \end{figure}
 
-Taking into account the systematic uncertainties given by (1) the decay-in-flight correction factor (0.1\%, section \ref{sec:dif}), (2) the detector non-uniformities (1.1\%, section \ref{sec:wires}), and (3) the $P/A$ correcting factor (0.2\%, section \ref{sec:reco}), the obtained data/Monte Carlo agreement is satisfactory, with 46 out of 48 ($\theta,\phi,L$) bins with a data/Monte Carlo ratio within 2$\sigma$ of unity. As expected, the reconstruction efficiency increases with the expected track length $L$ in the TPC, since longer tracks correspond, in general, to a larger number of hit wires and they are then easier to reconstruct.
+As expected, the reconstruction efficiency increases with the expected track length $L$ in the TPC, since longer tracks correspond, in general, to a larger number of hit wires and they are then easier to reconstruct.
+
+Taking into account the systematic uncertainties given by (1) the decay-in-flight correction factor (0.1\%, section \ref{sec:dif}), (2) the detector non-uniformities (1.1\%, section \ref{sec:wires}), and (3) the $P/A$ correcting factor (0.2\%, section \ref{sec:reco}), the obtained data/Monte Carlo agreement is satisfactory.%, with 46 out of 48 ($\theta,\phi,L$) bins with a data/Monte Carlo ratio within 2$\sigma$ of unity.
 
 The overall reconstruction efficiency, obtained integrating the three-dimensional plot and considering the systematic uncertainties, is:
 \begin{align*}
@@ -622,17 +626,17 @@ The overall reconstruction efficiency, obtained integrating the three-dimensiona
 \end{align*} for data and Monte Carlo, respectively. The agreement between the two values is within the error.
 
 \section{Conclusions}
-This analysis showed that it is possible to match hits in a muon counter system to a track in the LArTPC and that by comparing the number of events triggered by the MuCS with the number of events with MuCS-tagged tracks we can measure the data reconstruction efficiency.
+Cosmic muons hitting a LArTPC detector can be a source of backgrounds to several analysis, especially for an experiment located near the surface like MicroBooNE. Measuring the reconstruction efficiency of the cosmic rays in the detector is of fundamental importance for the assessment of the detector performances and the suppression of the cosmic-ray background.
 
-This efficiency, obtained with the procedure described in section \ref{sec:reco}, has been measured as a function of the starting angles $\theta$, $\phi$ and the expected length in the TPC, $L$. These coordinates have been measured using the spatial information provided by the hits in the MuCS.
+The work presented here uses the data coming from a small muon counter (the MuCS), placed on the top of MicroBooNE TPC, to measure the data reconstruction efficiency and compare it with the Monte Carlo reconstruction efficiency.
+A sample of ~20000 MuCS-triggering cosmic muons has been identified and the data coming from the MuCS has been merged with the data coming from the main detector. A method to evaluate the number of reconstructed MuCS cosmic rays has been studied using a dedicated Monte Carlo simulation.
 
-The data reconstruction efficiency is in agreement with the Monte Carlo reconstruction efficiency, measured using a simulation of cosmic rays all over the LArTPC.
+The data reconstruction efficiency, measured comparing the number of MuCS-triggering events with the number of events with a reconstructed MuCS cosmic ray, has been measured as a function of the cosmic ray starting angles $\theta$, $\phi$ and the expected length in the TPC, $L$. The data reconstruction efficiency has been compared with the Monte Carlo reconstruction efficiency and the two values have been found to be compatible.
 
-The portion of muons triggering the MuCS but decaying or being captured before reaching the TPC is, according to a Monte Carlo simulation, 1.0\%. It is necessary to account for this factor in the measurement of the data reconstruction efficiency.
+Systematic uncertainties that could affect the data reconstruction efficiency have been analyzed. The portion of muons triggering the MuCS but decaying or being captured before reaching the TPC is, according to a dedicated Monte Carlo simulation, 1.0\%. This factor has been taken into account in the measurement of the data reconstruction efficiency.
+The MuCS data has been acquired with the two boxes placed in three different positions, covering different parts of the detector. The detector non-uniformities have been found to induce a non-negligible effect in the measurement of the data reconstruction efficiency. The related systematic uncertainty has been evaluated to be 1.1\%.
 
-We have also shown that the detector non-uniformities must be taken into account in the measurement of the reconstruction efficiency and the related systematic uncertainty is 1.1\%.
-
-However, the coverage of the ($\theta, \phi, L$) parameter space provided by the MuCS is limited and it is not possible to measure efficiency-corrected quantities, such as the cosmic-ray flux. The Cosmic Ray Tagger (CRT), installed last summer, will be able to tag $\sim$80\% of the cosmic rays hitting the TPC and check the presence of non-uniformities in every part of the detector. Figure \ref{fig:crt} shows the coverage on the ($\theta,\phi$) plane of both the MuCS and the CRT, obtained with a Monte Carlo simulation.
+This paper validates the method of using an external muon counter to measure the cosmic-ray reconstruction efficiency in a LArTPC. The ($\theta, \phi, L$) parameter space covered by the MuCS will be expanded using the data coming from the Cosmic Ray Tagger (CRT), installed last summer. This detector will be able to tag $\sim$80\% of the cosmic rays hitting the TPC and check the presence of non-uniformities in every part of the detector. The data will allow to measure efficiency-corrected quantities, such as the cosmic-ray flux. Figure \ref{fig:crt} shows the coverage on the ($\theta,\phi$) plane of both the MuCS and the CRT, obtained with a Monte Carlo simulation.
 
 \begin{figure}[htbp]
   \begin{center}
