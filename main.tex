@@ -206,9 +206,9 @@ This analysis represents a small-scale demonstration of the method that can be u
 
 \section{Introduction}
 \label{sec:intro}
-MicroBooNE (Micro Booster Neutrino Experiment) is a Liquid Argon Time Projection Chamber (LArTPC) experiment, based at the Fermi National Accelerator Laboratory (Fermilab) \cite{detector}. Its main physics goals are to investigate the excess of low-energy events, observed by the MiniBooNE experiment \cite{miniboone}, and to measure neutrino-argon cross-sections. MicroBooNE also provides important research and development in terms of detector technology and event reconstruction techniques for future LArTPC experiments including DUNE (Deep Underground Neutrino Experiment).
+MicroBooNE (Micro Booster Neutrino Experiment) is a Liquid Argon Time Projection Chamber (LArTPC) experiment, based at the Fermi National Accelerator Laboratory (Fermilab) \cite{detector}. The main physics goals of the experiment are to investigate the excess of low-energy events, observed by the MiniBooNE experiment \cite{miniboone}, and to measure neutrino-argon cross sections. MicroBooNE also provides important research and development contributions in terms of detector technology and event reconstruction techniques for future LArTPC experiments, such as DUNE (Deep Underground Neutrino Experiment) \cite{dune}.
 
-The MicroBooNE detector  consists of a rectangular time projection chamber (TPC) with dimensions 256 cm $\times$ 233 cm $\times$ 1037 cm, located 470 m away from the Booster Neutrino Beam (BNB) target. The x-direction of the TPC corresponds to the drift coordinate, the y-direction is the vertical direction, and the z-direction is the direction along the beam. The cryostat contains a total of 170 ton of liquid argon, while the mass of liquid argon in the active volume, defined as the portion of the cryostat within the TPC borders, is 89 ton. Figure \ref{fig:coord} shows a graphical representation of the TPC in the MicroBooNE coordinate system.
+The MicroBooNE detector  consists of a rectangular time projection chamber (TPC) with dimensions 256 cm $\times$ 233 cm $\times$ 1037 cm and is located 470 m away from the Booster Neutrino Beam (BNB) target. The x-direction of the TPC corresponds to the drift coordinate, the y-direction is the vertical direction, and the z-direction is the direction along the beam. The cylindric cryostat contains a total of 170 ton of liquid argon, while the mass of liquid argon in the active volume, defined as the portion of the argon encompassed by the TPC, is 89 ton. Figure \ref{fig:coord} shows a graphical representation of the TPC in the MicroBooNE coordinate system.
 
 \begin{figure}[htbp]
   \begin{center}
@@ -218,27 +218,27 @@ The MicroBooNE detector  consists of a rectangular time projection chamber (TPC)
   \end{center}
 \end{figure}
 
-The TPC consists of three wire planes with 3 mm spacing at angles of 0,  $\pm 60^{\circ}$ with respect to the vertical and located at the anode of the TPC. The cathode plane operating voltage is -70 kV. In a neutrino interaction, a neutrino from the beam interacts with an argon nucleus and the charged outgoing secondary particles traverse the medium, losing energy and leaving an ionization trail. The resulting ionization electrons drift to the wire planes. The drift time, that corresponds to the DAQ time window, is 1.6 ms. The passage of these electrons near the wire planes induces a signal used to create three distinct two-dimensional views (in terms of wire and time) of the event.
+The TPC consists of an anode, made of three wire planes with 3 mm spacing at angles of 0,  $+60^{\circ}$ and  $-60^{\circ}$ with respect to the vertical and located at the anode of the TPC. The cathode, made of WHAT, operates at a voltage of -70 kV. In a neutrino interaction, a neutrino from the beam interacts with an argon nucleus and the secondary charged particles traverse the medium, losing energy and leaving an ionization trail. The resulting ionization electrons drift to the wire planes under an electric field of 273 V/cm. The distance between the cathode and anode is 2.56 m and an ionization electron takes about 1.6 ms to travel the full drift distance at an electric field of 276 V/cm. The drift time corresponds to the DAQ time window. The passage of these electrons near the wire planes induces a signal used to create three distinct two-dimensional views (in terms of wire and time) of the event.
 
-A set of 32 photomultipliers tubes (PMTs) is placed on the anode side of the TPC and collects the argon scintillation light. Light collection provides timing information with few-nanosecond precision, that, combined with the wire signals, allows for full three-dimensional reconstruction of the event.
+In addition, a set of 32 photomultipliers tubes (PMTs) is placed behind the anode plane and collects the argon scintillation light. Scintillation light provides timing information with few-nanosecond precision, that, combined with the wire signals, allows for full three-dimensional reconstruction of the event. More details about the MicroBooNE detector can be found in \cite{detector}.
 
+The BNB is predominantly composed of muon neutrinos ($\nu_{\mu}$) with a peak neutrino energy of about 0.7 GeV, which can undergo charge-current ($\nu_{\mu}$CC) interactions in the TPC and produce muons. However, due to the shallow depth of the cryostat location (around 6 meters below surface level), the abundant flux of cosmic muons can be a source of background to neutrino events and an optimal reconstruction of the cosmic rays in the TPC is crucial. The muon cosmic-ray flux in the MicroBooNE detector is estimated to be at the rate of 4.4 kHz, which corresponds to around 7 muons per TPC drift time window (1.6 ms) \cite{cosmic}.
 
-The Booster Neutrino Beam (BNB) is predominantly composed of muon neutrinos ($\nu_{\mu}$) with a peak neutrino energy of about 0.7 GeV, which can undergo charge-current ($\nu_{\mu}$CC) interactions in the TPC and produce muons. However, the abundant flux of cosmic muons, due to the shallow depth of the cryostat location (around 6 meters below surface level), can be a source of background to neutrino events and an optimal reconstruction of the cosmic rays in the TPC crucial. A Monte Carlo simulation of the the cosmic-ray flux hitting MicroBooNE gives a muon rate of 4.4 kHz, which corresponds to around 7 muons per TPC drift time window (1.6 ms).
+This paper describes a measurement of the reconstruction efficiencies using a dataset of cosmic rays triggered by an external Muon Counter System (MuCS) and passing through the MicroBooNE TPC. The goals are to provide data and Monte Carlo reconstruction efficiencies that can be used to evaluate reconstruction performance and to show that an external cosmic-ray counter can be used to measure the data reconstruction efficiency in MicroBooNE.
 
-This paper describes a study of the reconstruction efficiencies using a dataset of cosmic rays passing through an external Muon Counter System (MuCS) and hitting MicroBooNE TPC. The goal is to provide data and Monte Carlo reconstruction efficiencies that can be used to evaluate reconstruction performance and to show that an external cosmic-ray counter can be used to measure the data reconstruction efficiency in MicroBooNE.
-
-The data reconstruction efficiency is measured comparing the number of events triggered by the MuCS and the number of events with a MuCS-compatible reconstructed track.
-The Monte Carlo reconstruction efficiency, instead, was measured by comparing the number of generated cosmic rays with the number of reconstructed tracks, using simulated cosmic rays hitting the entire TPC.
+The data reconstruction efficiency is calculated comparing the number of events triggered by the MuCS and the number of events with a MuCS-compatible reconstructed track in the TPC.
+The Monte Carlo reconstruction efficiency is measured by comparing the number of generated cosmic rays with the number of reconstructed tracks, using simulated cosmic rays hitting the entire TPC.
 
 %The reconstruction efficiency is expressed as a function of the cosmic-ray starting angle (given by the spherical angles $\theta$ and $\phi$ relative to the beam direction $+z$) and of the expected length $L$ of its path in the TPC. More details on the Monte Carlo generation can be found in section \ref{sec:merging}.%, assuming it is a minimum-ionizing particle (MIP).
 
 %Using the Pandora pattern-recognition software framework \cite{pandora}, the overall reconstruction efficiency is $97.1\pm0.1\thinspace(\mathrm{stat}) \pm 1.4\thinspace(\mathrm{sys})\thinspace\%$ for data and $97.3\pm0.1\thinspace\%$ for Monte Carlo.
 
-In the future, the method described in this paper will be adapted to use the data coming form the Cosmic Ray Tagger \cite{crt}, which is able to tag around 80\% of the cosmic rays hitting the MicroBooNE LArTPC. %In this way, we will be able to cover the entire $(\theta,\phi,L)$ parameter space and measure efficiency-corrected quantities, such as the cosmic-ray flux in the LArTPC.
+In the future, the method described in this paper can be adapted to use the data coming form the Cosmic Ray Tagger (CRT) system\cite{crt}. The CRT system has been installed in the summer of 2016 and it is able to tag around 80\% of the cosmic rays hitting the MicroBooNE LArTPC. Using the larger data sample provided by the CRT it will possible to cover every part of the detector and measure efficiency-corrected quantities, such as the cosmic-ray flux in the TPC.
 
 
 \section{The Muon Counter System}\label{sec:proc}
-The Muon Counter System (MuCS), described in detail in \cite{mucs}, consists of two sets of planar modules made up of scintillator strips placed into two separate, light-tight boxes. Each planar module is made up of two sets of 24 scintillator strips, 4 cm wide, arranged into bi-layers oriented perpendicular to each other. Each strip contains a wavelength shifting fiber, connected to a Multi-Anode PMT. The Multi-Anode PMTs are read out by a DAQ system, separated from the DAQ system that reads out the TPC and PMT systems of the main detector.
+The Muon Counter System (MuCS) consists of two sets of planar modules placed into two separate, light-tight boxes. Each planar module is made up of two sets of 24 scintillator strips, 4 cm wide, arranged into bi-layers oriented perpendicular to each other, as shwon in figure \ref{fig:boxes}. Each strip contains a wavelength shifting optical fiber, connected to a Multi-Anode PMT. The Multi-Anode PMTs are read out by a dedicated DAQ system.
+The MuCS is described in detail in in \cite{mucs}.
 
 As shown in Figure \ref{fig:boxes}, a signal in one strip corresponds to a MuCS hit and, combining the MuCS hits in each bi-layer, it is possible to obtain two position coordinates of the crossing points of the cosmic rays ($z$ and $x$ in the MicroBooNE TPC coordinate system, shown in figure \ref{fig:coord}). The height of the modules (corresponding to the $y$ coordinate in the MicroBooNE TPC coordinate system), known to a precision of 0.5 cm, allows us to extrapolate a three-dimensional trajectory of the cosmic ray down to the TPC, which is defined as a MuCS-extrapolated track.
 \begin{figure}[htbp]
@@ -306,7 +306,7 @@ d = \sqrt{(x_{\mathrm{MuCS}}-x_{\mathrm{reco}})^2+(y_{\mathrm{MuCS}}-y_{\mathrm{
 \end{equation}
 where $(x_{\mathrm{reco}},y_{\mathrm{reco}},z_{\mathrm{reco}})$ is the starting point of the MuCS-tagged track.
 
- %We know that the space charge effect can displace the start and end points of the reconstructed tracks by a sensible amount (around 15 cm for points near the cathode), so we correct this displacemenent with the procedure described in \cite{sce}.
+ %We know that the space charge effect can displace the start and end points of the reconstructed tracks by a sensible amount (around 15 cm for points near the cathode), so we correct this displacement with the procedure described in \cite{sce}.
 %A PMT flash is associated with the MuCS signal if it falls within a well-known window with respect to the MuCS trigger.
 Figure \ref{fig:evd} shows a diagram with the MuCS-extrapolated track (black line), the MuCS-tagged track (green line) and the other reconstructed cosmic-ray tracks in the same readout window (grey lines). The distance $d$ between the first intersection point and the starting point of the MuCS-tagged track is shown by the red, double-headed arrow.
 
@@ -560,7 +560,7 @@ The systematic uncertainty related to the detector non-uniformities for each $\t
 %In order to verify if this sampling introduces a systematic effect, we choose the bin with the lowest number of MuCS events, which is 19. We then performed a Monte Carlo simulation, generating one thousand pseudo-experiments with 19 MuCS events sampled from the CORSIKA cosmic-ray energy spectrum with the same starting angles and length of our chosen bin. We filled a histogram with the value of the reconstruction efficiency for each pseudo-experiment and fitted the distribution with a Gaussian (figure \ref{fig:sampling}). The $\sigma$ of the fit is $0.084$, compatible with the statistical error of the same bin which is $0.083$. Thus, we conclude that the energy sampling of the cosmic rays does not introduce a systematic effect.
 
 \subsection{Data/Monte Carlo comparison}\label{sec:datamc}
-The reconstruction efficiencies were calculated for Monte Carlo and data, including the correction given by the decayed or captured muons and the systematic uncertainty related to the detector non-uniformities.
+The reconstruction efficiencies have been calculated for Monte Carlo and data as described above. The data reconstruction efficiency has been corrected for the portion of cosmic muons decaying or being captured before reaching the TPC and can be compared with the Monte Carlo reconstructin efficiency.
 For clarity, the three-dimensional efficiency plots shown in figure \ref{fig:3d} can be projected on the bi-dimensional planes ($\theta,\phi$), ($\theta,L$), ($\phi,L$), shown in figure \ref{fig:2d}, and on the single axis $\theta$, $\phi$, $L$, shown in figure \ref{fig:1d}.
 
 
@@ -617,19 +617,19 @@ For clarity, the three-dimensional efficiency plots shown in figure \ref{fig:3d}
 
 As expected, the reconstruction efficiency increases with the expected track length $L$ in the TPC, since longer tracks correspond, in general, to a larger number of hit wires and they are then easier to reconstruct.
 
-Taking into account the systematic uncertainties given by (1) the decay-in-flight correction factor (0.1\%, section \ref{sec:dif}), (2) the detector non-uniformities (1.1\%, section \ref{sec:wires}), and (3) the $P/A$ correcting factor (0.2\%, section \ref{sec:reco}), the obtained data/Monte Carlo agreement is satisfactory.%, with 46 out of 48 ($\theta,\phi,L$) bins with a data/Monte Carlo ratio within 2$\sigma$ of unity.
+Taking into account the systematic uncertainties given by (1) the $P/A$ correcting factor (0.2\%, section \ref{sec:reco}), (2) the decay-in-flight correction factor (0.1\%, section \ref{sec:dif}), and (3) the detector non-uniformities (1.1\%, section \ref{sec:wires}), the obtained data/Monte Carlo agreement is good.%, with 46 out of 48 ($\theta,\phi,L$) bins with a data/Monte Carlo ratio within 2$\sigma$ of unity.
 
 The overall reconstruction efficiency, obtained integrating the three-dimensional plot and considering the systematic uncertainties, is:
 \begin{align*}
 \epsilon_{\mathrm{data}} &= 97.1 \pm 0.1~\mathrm{(stat)} \pm 1.4~\mathrm{(sys)}~\%\\
 \epsilon_{\mathrm{MC}} &= 97.3 \pm 0.1~\%
-\end{align*} for data and Monte Carlo, respectively. The agreement between the two values is within the error.
+\end{align*} for data and Monte Carlo, respectively, showing a good agreement between the two.
 
 \section{Conclusions}
-Cosmic muons hitting a LArTPC detector can be a source of backgrounds to several analysis, especially for an experiment located near the surface like MicroBooNE. Measuring the reconstruction efficiency of the cosmic rays in the detector is of fundamental importance for the assessment of the detector performances and the suppression of the cosmic-ray background.
+Cosmic muons hitting a LArTPC detector can be a source of backgrounds to several analysis, especially for experiments located near the surface like MicroBooNE. Measuring the reconstruction efficiency of the cosmic rays in the detector is of fundamental importance for the assessment of the detector performances and the suppression of the cosmic-ray background.
 
 The work presented here uses the data coming from a small muon counter (the MuCS), placed on the top of MicroBooNE TPC, to measure the data reconstruction efficiency and compare it with the Monte Carlo reconstruction efficiency.
-A sample of ~20000 MuCS-triggering cosmic muons has been identified and the data coming from the MuCS has been merged with the data coming from the main detector. A method to evaluate the number of reconstructed MuCS cosmic rays has been studied using a dedicated Monte Carlo simulation.
+A sample of $\sim$20000 MuCS-triggering cosmic muons has been identified and the data coming from the MuCS has been merged with the data coming from the main detector. A method to evaluate the number of reconstructed MuCS cosmic rays has been studied using a dedicated Monte Carlo simulation.
 
 The data reconstruction efficiency, measured comparing the number of MuCS-triggering events with the number of events with a reconstructed MuCS cosmic ray, has been measured as a function of the cosmic ray starting angles $\theta$, $\phi$ and the expected length in the TPC, $L$. The data reconstruction efficiency has been compared with the Monte Carlo reconstruction efficiency and the two values have been found to be compatible.
 
@@ -641,7 +641,7 @@ This paper validates the method of using an external muon counter to measure the
 \begin{figure}[htbp]
   \begin{center}
     \includegraphics[width=0.7\linewidth]{figures/crt.png}
-    \caption{Monte Carlo simulation of the coverage in the ($\theta,\phi$) plane for both the MuCS (light blue), as presented in this paper, and the CRT system(dark blue).} \label{fig:crt}
+    \caption{Monte Carlo simulation of the coverage in the ($\theta,\phi$) plane for both the MuCS (light blue), as presented in this paper, and the CRT system (dark blue).} \label{fig:crt}
   \end{center}
 \end{figure}
 
@@ -656,6 +656,8 @@ This material is based upon work supported by the following: the U.S. Department
   \bibitem{miniboone} A.~A.~Aguilar-Arevalo et al. [MiniBooNE Collaboration], \textit{Improved Search for $\bar \nu_\mu \rightarrow \bar \nu_e$ Oscillations in the MiniBooNE Experiment}, Phys.\ Rev.\ Lett.\  {\bf 110} (2013) 161801 \texttt{doi:10.1103/PhysRevLett.110.161801 [hep-ex/1303.2588]}.
 
   \bibitem{detector} R. Acciarri, et al. [MicroBooNE Collaboration], \textit{Design and Construction of the MicroBooNE Detector}, 2016  [\href{https://arxiv.org/abs/1612.05824}{\texttt{hep-ex/1612.05824}}].
+
+  \bibitem{dune} R.~Acciarri, et al. [DUNE Collaboration], \textit{Long-Baseline Neutrino Facility (LBNF) and Deep Underground Neutrino Experiment (DUNE) : Volume 1: The LBNF and DUNE Projects}, [\href{https://arxiv.org/abs/1601.05471}{\texttt{ins-det/1601.05471}}].
 
   %\bibitem{pandoracosmic} R. Acciarri, et al. [MicroBooNE Collaboration], \textit{The Pandora multi-algorithm approach to automated pattern recognition in LAr TPC detectors}, 2016  [\href{http://www-microboone.fnal.gov/publications/publicnotes/index.html}{MICROBOONE-NOTE-1015-PUB}].
 
