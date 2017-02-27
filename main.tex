@@ -240,7 +240,7 @@ In the future, the method described in this paper can be adapted to use the data
 The Muon Counter System (MuCS) consists of two sets of planar modules placed into two separate, light-tight boxes. Each planar module is made up of two sets of 24 scintillator strips, 4 cm wide, arranged into bi-layers oriented perpendicular to each other, as shwon in figure \ref{fig:boxes}. Each strip contains a wavelength shifting optical fiber, connected to a Multi-Anode PMT. The Multi-Anode PMTs are read out by a dedicated DAQ system.
 The MuCS is described in detail in in \cite{mucs}.
 
-As shown in Figure \ref{fig:boxes}, a signal in one strip corresponds to a MuCS hit and, combining the MuCS hits in each bi-layer, it is possible to obtain two position coordinates of the crossing points of the cosmic rays ($z$ and $x$ in the MicroBooNE TPC coordinate system, shown in figure \ref{fig:coord}). The height of the modules (corresponding to the $y$ coordinate in the MicroBooNE TPC coordinate system), known to a precision of 0.5 cm, allows us to extrapolate a three-dimensional trajectory of the cosmic ray down to the TPC, which is defined as a MuCS-extrapolated track.
+As shown in Figure \ref{fig:boxes}, a signal in one strip corresponds to a MuCS hit and, combining the MuCS hits in each bi-layer, it is possible to obtain two position coordinates of the crossing points of the cosmic rays ($z$ and $x$ in the MicroBooNE TPC coordinate system, shown in figure \ref{fig:coord}). The height of the modules (corresponding to the $y$ coordinate in the MicroBooNE TPC coordinate system), known to a precision of 0.5 cm, allows to extrapolate a three-dimensional trajectory of the cosmic ray down to the TPC, which is defined as a MuCS-extrapolated track.
 \begin{figure}[htbp]
   \begin{center}
     \includegraphics[width=0.7\linewidth]{figures/boxes.png}
@@ -284,8 +284,8 @@ The MuCS is designed to provide a trigger on through-going muons that intersect 
 
 The MuCS DAQ that reads out the Multi-Anode PMTs is separated from the DAQ system that reads out the TPC and PMT systems of the main detector. It records the hit patterns of the scintillator stripes, while the main DAQ stores the TPC and PMT signals during the readout time window (4.8 ms).
 
-The MuCS triggers at a rate of nearly 3 Hz: given a DAQ integration window of 100 ns, the accidental coincidental rate is less then 0.01\% and it has been considered negligible for our study. The accidental rate is further reduced by a cut applied on the number of hit stripes: events with more than 4 hit stripes per bi-layer are removed from our sample.
-The probability that, during the same readout time window, another cosmic ray crosses the MuCS hitting the TPC is, given a trigger rate of 3 Hz, 0.01\% and it has also been considered negligible. We are then assuming that there is only one cosmic ray in the TPC that went through the MuCS.
+The MuCS triggers at a rate of nearly 3 Hz: given a MuCS DAQ integration window of 100 ns, the accidental coincidental rate is less then 0.01\% and it has been considered negligible for this study. The accidental rate is further reduced by a cut applied on the number of hit stripes: events with more than 4 hit stripes per bi-layer are removed from the data sample.
+The probability that, during the same DAQ time window, another cosmic ray crosses the MuCS hitting the TPC is, given a trigger rate of 3 Hz, 0.01\% and it has also been considered negligible. Thus, it is safe to assume that only one cosmic ray per DAQ time window is going through the MuCS and hit the TPC.
 
 The data follows a processing path that merges the MuCS hit patterns and extrapolated trajectory information with the TPC and PMT data stream to form a MuCS-merged dataset. %A flowchart of the procedure is shown in figure \ref{fig:scheme}.
 
@@ -319,10 +319,10 @@ Figure \ref{fig:evd} shows a diagram with the MuCS-extrapolated track (black lin
 \end{center}
 \end{figure}
 
-Our dataset will then include two different sets of information, with a one-to-one correspondence:
+The dataset will then include two different sets of information, with a one-to-one correspondence:
 \begin{itemize}
-  \item MuCS-extrapolated information: using the two points given by the MuCS (one for each box) we extrapolate a line crossing the entire TPC. In this way we obtain the two extrapolated starting angles $\theta$ and $\phi$, defined in eq. \eqref{eq:angles}, the extrapolated start point $(x_{\mathrm{MuCS}},y_{\mathrm{MuCS}},z_{\mathrm{MuCS}})$ and the extrapolated end point, corresponding to the second intersection between the MuCS-extrapolated track and the TPC. The extrapolated track length $L$ is calculated measuring the difference between the extrapolated start point and the extrapolated end point.
-  \item Reconstructed TPC data information: for each MuCS-triggered event, we store the reconstructed starting point $(x_{\mathrm{reco}},y_{\mathrm{reco}},z_{\mathrm{reco}})$, direction and length of the MuCS-tagged track.
+  \item MuCS-extrapolated information: a line crossing the entire TPC can be extrapolated from the two points given by the MuCS (one for each box). From this extrapolated line it is possible to obtain: (1) the two extrapolated starting angles $\theta$ and $\phi$, defined in eq. \eqref{eq:angles}, (2) the extrapolated start point $(x_{\mathrm{MuCS}},y_{\mathrm{MuCS}},z_{\mathrm{MuCS}})$, and (3) the extrapolated end point, corresponding to the second intersection between the MuCS-extrapolated track and the TPC. The extrapolated track length $L$ is calculated measuring the difference between the extrapolated start point and the extrapolated end point.
+  \item Reconstructed TPC data information: for each MuCS-triggered event, the reconstructed starting point $(x_{\mathrm{reco}},y_{\mathrm{reco}},z_{\mathrm{reco}})$, direction and length of the MuCS-tagged track are stored.
 \end{itemize}
 
 \subsection{Monte Carlo sample generation}\label{sec:mcgen}
@@ -354,36 +354,37 @@ The MuCS reconstruction efficiency $\epsilon$ is defined as the ratio between th
 \end{equation}
 However, in a data sample it is not possible to distinguish a MuCS cosmic ray from another cosmic ray and the MuCS-tagged track is defined as the reconstructed track with the closest starting point $(x_{\mathrm{reco}},y_{\mathrm{reco}},z_{\mathrm{reco}})$ to the extrapolated MuCS starting point $(x_{\mathrm{MuCS}},y_{\mathrm{MuCS}},z_{\mathrm{MuCS}})$, as shown in figure \ref{fig:evd}. Since some cosmic rays can trigger the MuCS without hitting the TPC (see red tracks in figure \ref{fig:mucs}), eq. \eqref{eq:eff} includes only the events with an extrapolated length in the TPC $L > 20$ cm, to ensure that the reconstruction efficiency is not being artificially lowered by including cosmic rays that missed the TPC or crossed it for a very small path.
 
-In every MuCS-triggered event there are on average 8 reconstructed tracks. Thus, events where the MuCS cosmic ray has not been reconstructed will always have at least one other reconstructed cosmic ray, so it is necessary to enforce a maximum distance $d_{\mathrm{max}}$ between the two points, $(x_{\mathrm{reco}},y_{\mathrm{reco}},z_{\mathrm{reco}})$ and $(x_{\mathrm{MuCS}},y_{\mathrm{MuCS}},z_{\mathrm{MuCS}})$. The number of our events with a MuCS-tagged track will then depend on $d_{\mathrm{max}}$.
+In every MuCS-triggered event there are on average 8 reconstructed tracks. Thus, events where the MuCS cosmic ray has not been reconstructed will always have at least one other reconstructed cosmic ray, so it is necessary to enforce a maximum distance $d_{\mathrm{max}}$ between the two points, $(x_{\mathrm{reco}},y_{\mathrm{reco}},z_{\mathrm{reco}})$ and $(x_{\mathrm{MuCS}},y_{\mathrm{MuCS}},z_{\mathrm{MuCS}})$. The number of events with a MuCS-tagged track will then depend on $d_{\mathrm{max}}$.
 
-In order to study the dependence of the number of MuCS-tagged tracks from $d_{\mathrm{max}}$, a Monte Carlo simulation of a MuCS run has been performed and defined as MuCS Monte Carlo. Each event of this simulation will have one cosmic ray passing through the MuCS boxes and several other cosmic rays hitting the TPC during the same readout window.
+In order to study the dependence of the number of MuCS-tagged tracks from $d_{\mathrm{max}}$, a Monte Carlo simulation of a MuCS run has been performed and defined as MuCS Monte Carlo. Each event of this simulation will have one cosmic ray passing through the MuCS boxes and several other cosmic rays hitting the TPC during the same time window.
 
-In the MuCS Monte Carlo, in fact, the truth information allows us to verify if the MuCS-tagged cosmic ray is a real MuCS cosmic ray, or if it is another reconstructed cosmic ray, which happens to be mis-identified due to the extrapolated starting point distance being closer than $d_{\mathrm{max}}$ because of multiple Coulomb scattering.
+In the MuCS Monte Carlo, in fact, the truth information allows to verify if the MuCS-tagged cosmic ray is a real MuCS cosmic ray, or if it is another reconstructed cosmic ray, which happens to be mis-identified due to the extrapolated starting point distance being closer than $d_{\mathrm{max}}$ because of multiple Coulomb scattering.
 The distance $d$ is defined in this case as:
 \begin{equation}\label{eq:d_mc}
 d = \sqrt{(x_{\mathrm{sim}}-x_{\mathrm{reco}})^2+(y_{\mathrm{sim}}-y_{\mathrm{reco}})^2+(z_{\mathrm{sim}}-z_{\mathrm{reco}})^2},
 \end{equation}
-where $(x_{\mathrm{sim}},y_{\mathrm{sim}},z_{\mathrm{sim}})$ and $(x_{\mathrm{reco}},y_{\mathrm{reco}},z_{\mathrm{reco}})$ are the coordinates of the intersection of the simulated cosmic-ray trajectory with the TPC and of the closest reconstructed track, respectively. Figure \ref{fig:dist} shows the distribution of the distance $d$ between the extrapolated starting point and of the closest reconstructed starting point, both for data and Monte Carlo.
+where $(x_{\mathrm{sim}},y_{\mathrm{sim}},z_{\mathrm{sim}})$ and $(x_{\mathrm{reco}},y_{\mathrm{reco}},z_{\mathrm{reco}})$ are the coordinates of the intersection of the simulated cosmic-ray trajectory with the TPC and of the closest reconstructed track, respectively. Figure \ref{fig:dist} shows the distribution of the distance $d$ between the extrapolated starting point and of the closest reconstructed starting point, both for data and MuCS Monte Carlo.
 
 \begin{figure}[htbp]
   \begin{center}
     \includegraphics[width=0.7\linewidth]{figures/dist.pdf}
-    \caption{Data and Monte Carlo distribution of the distance $d$ between the extrapolated starting point and the closest reconstructed starting point. The dashed line correspond to the chosen $d_{\mathrm{max}}$ cut (32 cm).} \label{fig:dist}
+    \caption{Data and MuCS Monte Carlo distribution of the distance $d$ between the extrapolated starting point and the closest reconstructed starting point. The dashed line correspond to the chosen $d_{\mathrm{max}}$ cut (32 cm).} \label{fig:dist}
   \end{center}
 \end{figure}
 
-In the MuCS reconstruction efficiency definition, eq. \eqref{eq:eff}, it is necessary to replace the number of MuCS-triggered events with the number of simulated MuCS events.
+In the MuCS reconstruction efficiency definition for the MuCS Monte Carloit is necessary to replace the number of MuCS-triggered events in eq. \eqref{eq:eff} with the number of simulated MuCS events.
+
 The efficiency $\epsilon_{\mathrm{tag}}$ of the cut on $d_{\mathrm{max}}$ is defined as:
 \begin{equation}
   \epsilon_{\mathrm{tag}}=\frac{\mathrm{N.~of~reco.~events~within~}d_{\mathrm{max}}}{\mathrm{N.~of~MuCS~triggered~events}}
 \end{equation}
-and can be measured both for our data sample ($\epsilon^{\mathrm{data}}_{\mathrm{tag}}$) and for our MuCS Monte Carlo simulation ($\epsilon^{\mathrm{MuCS-MC}}_{\mathrm{tag}}$), replacing $(x_{\mathrm{MuCS}},y_{\mathrm{MuCS}},z_{\mathrm{MuCS}})$ with $(x_{\mathrm{sim}},y_{\mathrm{sim}},z_{\mathrm{sim}})$ and the number of MuCS-triggered events with the number of simulated MuCS events.
+and can be measured both for the data sample ($\epsilon^{\mathrm{data}}_{\mathrm{tag}}$) and for the MuCS Monte Carlo simulation ($\epsilon^{\mathrm{MuCS-MC}}_{\mathrm{tag}}$), replacing $(x_{\mathrm{MuCS}},y_{\mathrm{MuCS}},z_{\mathrm{MuCS}})$ with $(x_{\mathrm{sim}},y_{\mathrm{sim}},z_{\mathrm{sim}})$ and the number of MuCS-triggered events with the number of simulated MuCS events.
 
-The purity $P$ of our Monte Carlo MuCS sample, which represents the fraction of correctly tagged MuCS cosmic rays, is defined as the ratio between the number of events with a reconstructed MuCS cosmic ray inside the $d_{\mathrm{max}}$ cut and the number of events with a reconstructed cosmic ray inside the $d_{\mathrm{max}}$ cut (MuCS-tagged cosmic rays):
+The purity $P$ of the Monte Carlo MuCS sample, which represents the fraction of correctly tagged MuCS cosmic rays, is defined as the ratio between the number of events with a reconstructed MuCS cosmic ray inside the $d_{\mathrm{max}}$ cut and the number of events with a reconstructed cosmic ray inside the $d_{\mathrm{max}}$ cut (MuCS-tagged cosmic rays):
 \begin{equation}
   P=\frac{\mathrm{N.~of~reco.~MuCS~cosmic\myhyphen ray~events~within~}d_{\mathrm{max}}}{\mathrm{N.~of~reco.~events~within~}d_{\mathrm{max}}}.
 \end{equation}
-The acceptance $A$ of our cut on $d_{\mathrm{max}}$, which represents the portion of MuCS cosmic rays within $d_{\mathrm{max}}$, is defined as the ratio between the number of events with a reconstructed MuCS cosmic ray inside the $d_{\mathrm{max}}$ cut and the total number of events with a reconstructed MuCS cosmic ray:
+The acceptance $A$ of the cut on $d_{\mathrm{max}}$, which represents the portion of MuCS cosmic rays within $d_{\mathrm{max}}$, is defined as the ratio between the number of events with a reconstructed MuCS cosmic ray inside the $d_{\mathrm{max}}$ cut and the total number of events with a reconstructed MuCS cosmic ray:
 \begin{equation}
   A=\frac{\mathrm{N.~of~reco.~MuCS~cosmic\myhyphen ray~events~within~}d_{\mathrm{max}}}{\mathrm{N.~of~reco.~MuCS~cosmic\myhyphen ray~events}}.
 \end{equation}
@@ -402,7 +403,7 @@ Figure \ref{fig:purity} shows the tagging efficiency both for data ($\epsilon^{\
   \end{center}
 \end{figure}
 
-Using eq. \eqref{eq:eff}, our MuCS Monte Carlo reconstruction efficiency $\epsilon_{\mathrm{MuCS\myhyphen MC}}$ will not depend, by construction, on the chosen value of $d_{\mathrm{max}}$. Since the $P/A$ correcting factor has been measured with a Monte Carlo simulation, the data reconstruction efficiency $\epsilon_{\mathrm{data}}$ will have a small dependence on $d_{\mathrm{max}}$ (see figure \ref{fig:purity}), because of the small difference between $\epsilon^{\mathrm{data}}_{\mathrm{tag}}$ and $\epsilon^{\mathrm{MuCS\myhyphen MC}}_{\mathrm{tag}}$.
+Using eq. \eqref{eq:eff}, the MuCS Monte Carlo reconstruction efficiency $\epsilon_{\mathrm{MuCS\myhyphen MC}}$ will not depend, by construction, on the chosen value of $d_{\mathrm{max}}$. Since the $P/A$ correcting factor has been measured with a Monte Carlo simulation, the data reconstruction efficiency $\epsilon_{\mathrm{data}}$ will have a small dependence on $d_{\mathrm{max}}$ (see figure \ref{fig:purity}), because of the small difference between $\epsilon^{\mathrm{data}}_{\mathrm{tag}}$ and $\epsilon^{\mathrm{MuCS\myhyphen MC}}_{\mathrm{tag}}$.
 The difference between the lowest and the highest value of $\epsilon_{\mathrm{data}}$ is 0.2\%. This value has been used to quote the systematic uncertainty related to the $P/A$ correcting factor.
 The chosen value of $d_{\mathrm{max}}$ is $d_{\mathrm{max}}=32~\mathrm{cm}$. Figure \ref{fig:dist} and figure \ref{fig:purity} show that around this value the $d$, $P$ and $A$ distributions are almost constant. For this particular value,  the ratio $P/A$ is 1, which is also a convenient choice for the calculation of $\epsilon_{\mathrm{data}}$.
 
@@ -432,7 +433,7 @@ The Monte Carlo cosmic-ray reconstruction efficiency, obtained with the Monte Ca
   \epsilon_{\mathrm{MC}} = \frac{\mathrm{N.~of~reco.~cosmic\myhyphen ray~events}}{\mathrm{N.~of~generated~cosmic\myhyphen ray~events}}.
 \end{equation}
 
-This Monte Carlo sample contains cosmic rays generated all over the TPC, with $\epsilon_{\mathrm{MC}}$ having an averaged dependence on the position of the cosmic ray in the TPC. The MuCS dataset, instead, covers only three regions of the detector, shown in figure \ref{fig:mucs}. Thus, a direct comparison of the MuCS data with the Monte Carlo sample will allow us to verify if the data reconstruction efficiency, measured in specific parts of the detector, is valid throughout the detector.
+This Monte Carlo sample contains cosmic rays generated all over the TPC, with $\epsilon_{\mathrm{MC}}$ having an averaged dependence on the position of the cosmic ray in the TPC. The MuCS dataset, instead, covers only three regions of the detector, shown in figure \ref{fig:mucs}. Thus, a direct comparison of the MuCS data with the Monte Carlo sample will allow to verify if the data reconstruction efficiency, measured in specific parts of the detector, is valid throughout the detector.
 
 In an ideal TPC the reconstruction efficiency for a cosmic ray depends only on the number of hit wires, which is given unequivocally by the direction and the length of the track in the TPC. In general, a cosmic ray with a longer path in the TPC will correspond to a larger number of hit wires, making easier for the algorithm to reconstruct a track. The reconstruction efficiency depends also on the direction of the cosmic ray, since cosmic rays aligned with the wires of one plane (0, $\pm60^{\circ}$ with respect to the $y$ axis) will generate few hits in that particular plane, making the track reconstruction more difficult.
 Thus, it is possible to express the data, $\epsilon_{\mathrm{data}}$, and the Monte Carlo, $\epsilon_{\mathrm{MC}}$, reconstruction efficiencies as a function of the spherical starting angles $\theta$, $\phi$ and of the expected track length $L$ in the TPC.
@@ -452,17 +453,21 @@ The efficiency can then be plotted as a three-dimensional histogram: each bin wi
     \includegraphics[width=\linewidth]{figures/3d_data.png}
     \caption{Data} \label{fig:3d_data}
   \end{subfigure}
-  \caption{Monte Carlo and data three-dimensional reconstruction efficiency as a function of the starting angles $\theta$, $\phi$ and the extrapolated track length $L$. The size of the box represents the size of the efficiency. The empty region in the upper part of the plot corresponds to a region of the parameter space not covered by our dataset.}\label{fig:3d}
+  \caption{Monte Carlo and data three-dimensional reconstruction efficiency as a function of the starting angles $\theta$, $\phi$ and the extrapolated track length $L$. The size of the box represents the size of the efficiency. The empty region in the upper part of the plot corresponds to a region of the parameter space not covered by the data sample.}\label{fig:3d}
 \end{figure}
 
 \subsection{Systematic uncertainties}
-The measurement of the reconstruction efficiency can be affected by several systematic effects. First of all, we normalize the number of reconstructed MuCS cosmic rays with the number of MuCS-triggered events, as shown in eq. \eqref{eq:eff}. However, some cosmic muon can decay or be stopped before reaching the TPC and they are then impossible to reconstruct. This effect is described in section \ref{sec:dif}.
+The measurement of the reconstruction efficiency can be affected by several systematic effects.
+As shown in section \ref{sec:reco}, the value of $\epsilon_{\mathrm{data}}$ has a small dependence on the chosen value of $d_{\mathrm{max}}$. The difference between the highest and lowest value of $\epsilon_{\mathrm{data}}$ (0.2\%) has been taken as the systematic uncertainty relative to the $d_{\mathrm{max}}$ cut.
+
+The number of reconstructed MuCS cosmic rays is normalized by the number of MuCS-triggered events, as shown in eq. \eqref{eq:eff}. However, some cosmic muon can decay or be stopped before reaching the TPC and they are then impossible to reconstruct. This systematic effect is described in section \ref{sec:dif}.
+
 Moreover, since the data sample is measured in three specific parts of the detector, the presence of noisy or unresponsive wires could bias the measurement of the reconstruction efficiency. The systematic uncertainty related to this effect is evaluated in section \ref{sec:wires}.
 
 The multiple Coulomb scattering of the cosmic ray in the material depends on the energy of the cosmic ray \cite{pdg}. Cosmic rays that scatter more have a higher probability to be outside the $d_{\mathrm{max}}$ cut and they are also more difficult to reconstruct. Thus, it can happen that in the ($\theta$, $\phi$, $L$) bins where the data reconstruction efficiency has been measured with low statistics, the MuCS cosmic rays can be distributed in a small region of the energy spectrum, which is very steep \cite{corsika}. This sampling effect could bias the measurement of the reconstruction efficiency. However,  this systematic effect has been verified to be negligible with the present level of statistics (smaller than 0.1\%).
 
 \subsubsection{Decay-in-flight or captured muons}\label{sec:dif}
-The cosmic muons hitting the MuCS can decay in flight or be captured before reaching the TPC. In this case, they trigger the MuCS but do not generate a cosmic track in the detector. Since in our definition of the data reconstruction efficiency $\epsilon_{\mathrm{data}}$, eq. \eqref{eq:eff}, the denominator corresponds to the number of MuCS-triggered events, and this effect needs to be corrected. The fraction $D$ of cosmic rays that go through the MuCS but decay or are captured before reaching the TPC has been measured from the MuCS Monte Carlo simulation as:
+The cosmic muons hitting the MuCS can decay in flight or be captured before reaching the TPC. In this case, they trigger the MuCS but do not generate a cosmic track in the detector. Since in the definition of the data reconstruction efficiency $\epsilon_{\mathrm{data}}$, eq. \eqref{eq:eff}, the denominator corresponds to the number of MuCS-triggered events, and this effect needs to be corrected. The fraction $D$ of cosmic rays that go through the MuCS but decay or are captured before reaching the TPC has been measured from the MuCS Monte Carlo simulation as:
 \begin{equation}
 D = \frac{\mathrm{N.~of~decayed/captured~muons}}{\mathrm{N.~of~MuCS~triggered~events}} = 1.0 \pm 0.1~\%.
 \end{equation}
@@ -473,13 +478,13 @@ This correction factor has been verified to be independent from $\theta$, $\phi$
 The statistical uncertainty of the correcting factor $D$, 0.1\%, is considered as the systematic uncertainty related to this correction.
 
 \subsubsection{Detector non-uniformities}\label{sec:wires}
-A potential presence of detector non-uniformities can introduce a systematic uncertainty in the measurement of the reconstruction efficiency. In particular, the presence of noisy or unresponsive wires in specific regions of the detector can lower the reconstruction efficiency in some of our three datasets. However, the three different MuCS configurations (shown in figure \ref{fig:mucs}) allow us to cover different regions of the TPC, providing information on potential non-uniformities.
+A potential presence of detector non-uniformities can introduce a systematic uncertainty in the measurement of the reconstruction efficiency. In particular, the presence of noisy or unresponsive wires in specific regions of the detector can lower the reconstruction efficiency in some of the three datasets. However, the three different MuCS configurations (shown in figure \ref{fig:mucs}) allow to cover different regions of the TPC, providing information on potential non-uniformities.
 
 To check if these non-uniformities introduce a systematic effect, the significance $\sigma$ of the differences between the data reconstruction efficiencies measured in two different configurations with the following definition has been calculated:
 \begin{equation}
 \sigma = \frac{\epsilon_a-\epsilon_b}{\sqrt{\Delta \epsilon_{a}^2 + \Delta \epsilon_b^2}},
 \end{equation}
-where $\epsilon_{a}$ ($\epsilon_{b}$) is the reconstruction efficiency in the arbitrary $a$ ($b$) configuration and $\Delta \epsilon_{a}$ ($\Delta \epsilon_{b}$) is the corresponding statistical error. This significance has been measured for each corresponding $\theta,\phi,L$ bin and for each possible combination of central, downstream and upstream configuration (described in section \ref{sec:proc}). In presence of a systematic effect, the standard deviation of the significances distribution would be larger than unity. In our case, the Gaussian fit of the distribution gives $\sigma = 1.54\pm0.12$, suggesting detector non-uniformity.
+where $\epsilon_{a}$ ($\epsilon_{b}$) is the reconstruction efficiency in the arbitrary $a$ ($b$) configuration and $\Delta \epsilon_{a}$ ($\Delta \epsilon_{b}$) is the corresponding statistical error. This significance has been measured for each corresponding $\theta,\phi,L$ bin and for each possible combination of central, downstream and upstream configuration (described in section \ref{sec:proc}). In presence of a systematic effect, the standard deviation of the significances distribution would be larger than unity. In this case, the Gaussian fit of the distribution gives $\sigma = 1.54\pm0.12$, suggesting detector non-uniformity.
 
 % \begin{figure}[htbp]
 %   \begin{center}
