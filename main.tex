@@ -283,8 +283,10 @@ A three-dimensional schematic of the three MuCS setups is shown in figure \ref{f
 \section{MuCS data processing and Monte Carlo generation}\label{sec:merging}
 
 \subsection{Data sample processing}\label{sec:data_proc}
-The MuCS triggers at a rate of nearly 3 Hz. Given a MuCS DAQ integration window of 100 ns, the accidental coincidental rate of having more than one cosmic ray in the same integration window is estimated to be less then 0.001\% and it is considered negligible for this study. A software filter removes the events with more than 4 hit strips per bi-layer from the data sample, further reducing this accidental rate.
-The probability that, during a same drift time window of 2.2 ms, a second cosmic ray crosses the MuCS and hits the TPC is, given a trigger rate of 3 Hz, 0.01\% and it is also considered negligible for this study. Therefore, it is assumed for this study that only one cosmic ray per drift time window is going through the MuCS and the TPC.
+The MuCS triggers at a rate of nearly 3 Hz. 
+%Given a MuCS DAQ integration window of 100 ns, the accidental coincidental rate of having more than one cosmic ray in the same integration window is negligible. 
+A software filter removes the events with more than 4 hit strips per bi-layer from the data sample, further reducing this accidental rate and discarding events with unclear hit patterns.
+The probability that, during a same drift time window of 2.2 ms, a second cosmic ray crosses the MuCS and hits the TPC is, given a trigger rate of 3 Hz, 0.002\% and it is also considered negligible for this study. Therefore, it is assumed for this study that only one cosmic ray per drift time window is going through the MuCS and the TPC.
 
 The data follows a processing path that merges the MuCS hit patterns and extrapolated trajectory information with the TPC and PMT data streams to form a MuCS-merged dataset. %A flowchart of the procedure is shown in figure \ref{fig:scheme}.
 

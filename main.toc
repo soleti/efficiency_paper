@@ -2,7 +2,7 @@
 \contentsline {section}{\numberline {2}The Muon Counter System}{3}{section.2}
 \contentsline {section}{\numberline {3}MuCS data processing and Monte Carlo generation}{3}{section.3}
 \contentsline {subsection}{\numberline {3.1}Data sample processing}{3}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Monte Carlo sample generation}{5}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.2}Monte Carlo sample generation}{6}{subsection.3.2}
 \contentsline {section}{\numberline {4}Reconstruction efficiencies}{7}{section.4}
 \contentsline {subsection}{\numberline {4.1}Systematic uncertainties}{10}{subsection.4.1}
 \contentsline {subsubsection}{\numberline {4.1.1}Effect of the $d_{\mathrm {max}}$ cut}{11}{subsubsection.4.1.1}
