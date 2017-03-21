@@ -187,7 +187,7 @@
 
 
 
-\abstract{The MicroBooNE detector is a liquid argon time projection chamber designed for short-baseline neutrino oscillation physics, currently running at Fermilab. Due to its location near the surface, cosmic muons can be a source of backgrounds and a good understanding of them is of fundamental importance for the experiment. This study presents a method of using an external muon counter system to determine the cosmic-ray reconstruction efficiency in MicroBooNE.
+\abstract{The MicroBooNE detector is a liquid argon time projection chamber designed for short-baseline neutrino oscillation physics, currently running at Fermilab. Due to its location near the surface, cosmic muons can be a source of backgrounds and a good understanding of them is of fundamental importance for the experiment. This study presents a method of using an external muon counter system, installed above the main detector, to determine the cosmic-ray reconstruction efficiency in MicroBooNE.
 Data is acquired with the external muon counter system placed in the three different positions, corresponding to cosmic rays intersecting different parts of the detector.
 %The reconstruction of the tracks is performed using the multi-algorithm Pandora framework.
 The data reconstruction efficiency is found to be $\epsilon_{\mathrm{data}}=97.1\pm0.1~(\mathrm{stat}) \pm 1.4~(\mathrm{sys})\%$, in good agreement with the Monte Carlo reconstruction efficiency $\epsilon_{\mathrm{MC}} = 97.3\pm0.1\%$.
@@ -208,7 +208,7 @@ This analysis represents a small-scale demonstration of the method that can be u
 \label{sec:intro}
 MicroBooNE (Micro Booster Neutrino Experiment) is a Liquid Argon Time Projection Chamber (LArTPC) experiment located at the Fermi National Accelerator Laboratory (Fermilab) \cite{detector}. The main physics goals of the experiment are to investigate the excess of low-energy events observed by the MiniBooNE experiment \cite{miniboone}, and to measure neutrino-argon cross sections. MicroBooNE also provides important research and development contributions in terms of detector technology and event reconstruction techniques for future LArTPC experiments, such as DUNE (Deep Underground Neutrino Experiment) \cite{dune}.
 
-The MicroBooNE detector  consists of a rectangular time projection chamber (TPC) with dimensions of 256 cm $\times$ 233 cm $\times$ 1037 cm and is located 470 m away from the Booster Neutrino Beam (BNB) target. The x-direction of the TPC corresponds to the drift coordinate, the y-direction is the vertical direction, and the z-direction is the direction along the beam. The cylindrical cryostat contains a total of 170 t of liquid argon, while the mass of liquid argon in the active volume, defined as the portion of the argon encompassed by the TPC, is 89 ton. Figure \ref{fig:coord} shows a graphical representation of the TPC in the MicroBooNE coordinate system.
+The MicroBooNE detector  consists of a rectangular time projection chamber (TPC) with dimensions of 256 cm (width) $\times$ 233 cm (length) $\times$ 1037 cm (height) and is located 470 m away from the Booster Neutrino Beam (BNB) target.  The cylindrical cryostat contains a total of 170 t of liquid argon, while the mass of liquid argon in the active volume, defined as the portion of the argon encompassed by the TPC, is 89 ton. Figure \ref{fig:coord} shows a graphical representation of the TPC in the MicroBooNE coordinate system. The x-direction of the TPC corresponds to the drift coordinate, the y-direction is the vertical direction, and the z-direction is the direction along the beam.
 
 \begin{figure}[htbp]
   \begin{center}
@@ -222,26 +222,22 @@ The TPC consists of three wire planes with 3 mm spacing at angles of 0,  $+60^{\
 
 A set of 32 photomultipliers tubes (PMTs) is placed behind the anode plane to collect the argon scintillation light. Scintillation light provides timing information with few-nanosecond precision, which provide the time of the event and can, in some cases, allow for background suppression. More details about the MicroBooNE detector can be found in \cite{detector}.
 
-The BNB is predominantly composed of muon neutrinos ($\nu_{\mu}$) with a peak neutrino energy of about 0.7 GeV, which can undergo charged-current ($\nu_{\mu}$CC) interactions in the TPC and produce muons. The detector is placed in a pit 6 meters below the surface with no overburden, so the abundant flux of cosmic muons is a source of background to neutrino events and an optimal reconstruction of the cosmic rays in the TPC is crucial. The muon cosmic-ray flux in the MicroBooNE detector is estimated to have a  rate of 5.5 kHz, which corresponds to approximately 12 muons per TPC drift time window (2.2 ms) \cite{cosmic}.
+The BNB is predominantly composed of muon neutrinos ($\nu_{\mu}$) with a peak neutrino energy of about 0.7 GeV, which can undergo charged-current ($\nu_{\mu}$CC) interactions in the TPC and produce muons. The detector is placed in a pit 6 meters below the surface with no overburden and the muon cosmic-ray flux in the MicroBooNE detector is estimated to have a rate of 5.5 kHz, which corresponds to approximately 12 muons per TPC drift time window (2.2 ms) \cite{cosmic}. Thus, the abundant flux of cosmic muons is a source of background to neutrino events and an optimal reconstruction of the cosmic rays in the TPC is crucial.
 
-This paper describes a measurement of the reconstruction efficiencies using a dataset of cosmic rays triggered by an external Muon Counter System (MuCS) and passing through the MicroBooNE TPC. The goals are to provide data and Monte Carlo reconstruction efficiencies that can be used to evaluate reconstruction performance and to show that an external cosmic-ray counter can be used to measure the data reconstruction efficiency in MicroBooNE.
+In order to address the challenges of cosmic-ray background rejection in a surface neutrino experiment, the MicroBooNE experiment has been equipped with an external Muon Counter System (MuCS). This system is enabling MicroBooNE to develop and demonstrate muon tagging, and has provided an external set of data with which to validate the simulation and reconstruction.
 
-The description of the MuCS is given in section \ref{sec:proc}. A discussion of the data processing and analysis, as well as the Monte Carlo simulations is presented in section \ref{sec:merging}. Details of the reconstruction efficiency measurements and of the evaluation of the systematic uncertainties are given in section \ref{sec:reco}.
+This paper describes a measurement of the reconstruction efficiencies using a dataset of cosmic rays triggered by the MuCS and passing through the MicroBooNE TPC. The goals are to provide data and Monte Carlo reconstruction efficiencies that can be used to evaluate reconstruction performance and to show that an external cosmic-ray counter can be used to measure the data reconstruction efficiency in MicroBooNE.
+
+The description of the MuCS is given in section \ref{sec:proc}. A discussion of the data processing and analysis, as well as the Monte Carlo simulations is presented in section \ref{sec:merging}. Details of the reconstruction efficiency measurements and of the evaluation of the systematic uncertainties are given in section \ref{sec:reco}. In the future, the method described in this paper can be adapted to use the data coming form the Cosmic Ray Tagger (CRT) system \cite{crt}. The CRT system was installed in the summer of 2016 and it is able to tag around 80\% of the cosmic rays hitting the MicroBooNE LArTPC. The larger data sample provided by the CRT will offer a larger coverage of the detector regions  and measure efficiency-corrected quantities for the whole detector, such as the cosmic-ray flux in the TPC.
+
 
 %The data reconstruction efficiency is calculated comparing the number of events triggered by the MuCS and the number of events with a MuCS-compatible reconstructed track in the TPC.
 %The Monte Carlo reconstruction efficiency is measured by comparing the number of generated cosmic rays with the number of reconstructed tracks, using simulated cosmic rays hitting the entire TPC.
-
 %The reconstruction efficiency is expressed as a function of the cosmic-ray starting angle (given by the spherical angles $\theta$ and $\phi$ relative to the beam direction $+z$) and of the expected length $L$ of its path in the TPC. More details on the Monte Carlo generation can be found in section \ref{sec:merging}.%, assuming it is a minimum-ionizing particle (MIP).
-
 %Using the Pandora pattern-recognition software framework \cite{pandora}, the overall reconstruction efficiency is $97.1\pm0.1\thinspace(\mathrm{stat}) \pm 1.4\thinspace(\mathrm{sys})\thinspace\%$ for data and $97.3\pm0.1\thinspace\%$ for Monte Carlo.
 
-In the future, the method described in this paper can be adapted to use the data coming form the Cosmic Ray Tagger (CRT) system \cite{crt}. The CRT system was installed in the summer of 2016 and it is able to tag around 80\% of the cosmic rays hitting the MicroBooNE LArTPC. The larger data sample provided by the CRT will offer a larger coverage of the detector regions  and measure efficiency-corrected quantities for the whole detector, such as the cosmic-ray flux in the TPC.
-
-
 \section{The Muon Counter System}\label{sec:proc}
-The Muon Counter System, described in detail in \cite{mucs}, consists of two sets of planar modules placed into two separate, light-tight boxes. The upper and lower boxes are placed 2.75 m and 2.03 m above the TPC, respectively. Each planar module is made up of two sets of 24 scintillator strips, 4 cm wide, arranged into bi-layers oriented perpendicular to each other, as shown in figure \ref{fig:boxes}. Each strip contains a wavelength shifting optical fiber, connected to a Multi-Anode PMT. The Multi-Anode PMTs are read out by a dedicated DAQ system, which records the hit patterns of the scintillator strips.
-The MuCS is designed to provide a trigger on through-going muons that intersect all four bi-layers of scintillator strips. The MuCS trigger is propagated to the MicroBooNE trigger board and provides the starting time ($t_0$) of a track in the TPC associated with the MuCS. The MuCS data sample consists of $\sim$30000 MuCS-triggered events.
-%The MuCS DAQ that reads out the Multi-Anode PMTs is separated from the DAQ system that reads out the TPC and PMT systems of the main detector. It records the hit patterns of the scintillator strips, while the main DAQ stores the TPC and PMT signals during the readout time window.
+The Muon Counter System, described in detail in \cite{mucs}, consists of two sets of planar modules placed into two separate, light-tight boxes. The upper and lower boxes are placed 2.75 m and 2.03 m above the TPC, respectively. Their position is known to a precision of 0.5 cm. Each planar module is constructed using 48 scintillator strips of width 4 cm, length 48 cm, and thickness 2 cm. The scintillator strips are arranged into a pair of bi-layers, each 12 strips wide and oriented perpendicular to each other. The overall setup is shown in figure \ref{fig:boxes}.
 
 \begin{figure}[htbp]
   \begin{center}
@@ -250,16 +246,9 @@ The MuCS is designed to provide a trigger on through-going muons that intersect 
   \end{center}
 \end{figure}
 
-As illustrated in figure \ref{fig:boxes}, a signal in one strip corresponds to a MuCS hit and, combining the MuCS hits in each bi-layer, it is possible to obtain two sets of position coordinates of the crossing points of the cosmic rays (the $z$ and $x$ coordinates in the MicroBooNE TPC reference frame shown in figure \ref{fig:coord}). The height at which the modules are positioned (corresponding to the $y$ coordinate for the MicroBooNE TPC reference frame), known to a precision of 0.5 cm, allows to extrapolate a three-dimensional trajectory of the cosmic ray from the MuCS down to the TPC, which is defined as a \emph{MuCS-extrapolated track}.
-
-
-The starting angle of the cosmic ray trajectory, in spherical coordinates, is defined by:
-\begin{align}\label{eq:angles}
-  \theta = \mathrm{acos}\left(\frac{z_{\mathrm{top}}-z_{\mathrm{bottom}}}{r}\right), \quad
-  \phi = \mathrm{atan}\left(\frac{y_{\mathrm{top}}-y_{\mathrm{bottom}}}{x_{\mathrm{top}}-x_{\mathrm{bottom}}}\right),
-\end{align}
-where $r = \sqrt{(x_{\mathrm{top}}-x_{\mathrm{bottom}})^2+(y_{\mathrm{top}}-y_{\mathrm{bottom}})^2+(z_{\mathrm{top}}-z_{\mathrm{bottom}})^2}$ and the top (bottom) coordinates are given by the hit positions in the top (bottom) MuCS box.
-
+Each strip contains a wavelength shifting optical fiber, connected to a Multi-Anode PMT. The Multi-Anode PMTs are read out by a dedicated DAQ system, which records the hit patterns of the scintillator strips.
+The MuCS is designed to provide a trigger on through-going muons that intersect all four bi-layers of scintillator strips.
+%The MuCS DAQ that reads out the Multi-Anode PMTs is separated from the DAQ system that reads out the TPC and PMT systems of the main detector. It records the hit patterns of the scintillator strips, while the main DAQ stores the TPC and PMT signals during the readout time window.
 
 This analysis is performed on three datasets, acquired with different geometrical configurations. The three configurations correspond to a setup with the two boxes placed at the upstream end, at the center and at the downstream end of MicroBooNE, keeping the box-spacing and alignment identical.
 A three-dimensional schematic of the three MuCS setups is shown in figure \ref{fig:mucs}.
@@ -282,22 +271,34 @@ A three-dimensional schematic of the three MuCS setups is shown in figure \ref{f
 \end{figure}
 
 
-\section{MuCS data processing and Monte Carlo generation}\label{sec:merging}
+\section{MuCS data reduction and Monte Carlo simulation}\label{sec:merging}
 
-\subsection{Data sample processing}\label{sec:data_proc}
+\subsection{Data sample reduction}\label{sec:data_proc}
+The MuCS trigger is propagated to the MicroBooNE trigger board and provides the starting time ($t_0$) of a track in the TPC associated with the MuCS. The MuCS data sample consists of $\sim$30000 MuCS-triggered events.
 The MuCS triggers at a rate of nearly 3 Hz.
 %Given a MuCS DAQ integration window of 100 ns, the accidental coincidental rate of having more than one cosmic ray in the same integration window is negligible.
 A software filter removes the events with more than 4 hit strips per bi-layer from the data sample, discarding events with unclear hit patterns, caused by electronic noise or air showers.
 The probability that, during the same drift time window of 2.2 ms, a second cosmic ray crosses the MuCS and hits the TPC is, given a trigger rate of 3 Hz, 0.002\% and it is considered negligible for this study. Therefore, it is assumed for this study that only one cosmic ray per drift time window is going through the MuCS and the TPC.
 
-The data follows a processing path that merges the MuCS hit patterns and extrapolated trajectory information with the TPC and PMT data streams to form a MuCS-merged dataset. %A flowchart of the procedure is shown in figure \ref{fig:scheme}.
+The data follows a processing path that merges the MuCS hit patterns and extrapolated trajectory information with the TPC to form a MuCS-merged dataset. %A flowchart of the procedure is shown in figure \ref{fig:scheme}.
 
 % \begin{figure}[htbp]
 %   \includegraphics[width=\linewidth]{figures/scheme.pdf}
 %   \caption{Flowchart showing the procedure used to generate the dataset used in this analysis. We end up with two data products: one with extrapolated coordinates obtained using MuCS-only data and one with reconstructed TPC tracks and PMT flashes, if present.} \label{fig:scheme}
 % \end{figure}
 
-The hits in the MuCS are used to obtain a point for each box and extrapolate a track through the TPC (MuCS-extrapolated track) as described in section \ref{sec:proc}. The ionization electrons generate a signal in the TPC wires to form the TPC hits, that are then fed to the MicroBooNE reconstruction chain and used by the track reconstruction algorithms provided by the Pandora framework \cite{pandora} to form the TPC reconstructed tracks.
+\subsection{MuCS reconstruction}
+As illustrated in figure \ref{fig:boxes}, a signal in one strip corresponds to a MuCS hit and, combining the MuCS hits in each bi-layer, it is possible to obtain two sets of position coordinates of the crossing points of the cosmic rays (the $z$ and $x$ coordinates in the MicroBooNE TPC reference frame shown in figure \ref{fig:coord}). The height at which the modules are positioned (corresponding to the $y$ coordinate for the MicroBooNE TPC reference frame) allows to extrapolate a three-dimensional trajectory of the cosmic ray from the MuCS down to the TPC, which is defined as a \emph{MuCS-extrapolated track}.
+
+
+The starting angle of the cosmic ray trajectory, in spherical coordinates, is defined by:
+\begin{align}\label{eq:angles_mucs}
+  \theta = \mathrm{acos}\left(\frac{z_{\mathrm{top}}-z_{\mathrm{bottom}}}{r}\right), \quad
+  \phi = \mathrm{atan}\left(\frac{y_{\mathrm{top}}-y_{\mathrm{bottom}}}{x_{\mathrm{top}}-x_{\mathrm{bottom}}}\right),
+\end{align}
+where $r = \sqrt{(x_{\mathrm{top}}-x_{\mathrm{bottom}})^2+(y_{\mathrm{top}}-y_{\mathrm{bottom}})^2+(z_{\mathrm{top}}-z_{\mathrm{bottom}})^2}$ and the top (bottom) coordinates are given by the hit positions in the top (bottom) MuCS box.
+
+The hits in the MuCS are used to obtain an intersection point in each planar module and extrapolate the muon trajectory into the TPC (MuCS-extrapolated track) as described in section \ref{sec:proc}. The ionization electrons generate a signal in the TPC wires to form the TPC hits, that are then fed to the MicroBooNE reconstruction chain and used by the track reconstruction algorithms provided by the Pandora framework \cite{pandora} to form the TPC reconstructed tracks.
 
 The first intersection point between the MuCS-extrapolated track and the TPC is defined as $(x_{\mathrm{MuCS}}$, $y_{\mathrm{MuCS}}$, $z_{\mathrm{MuCS}})$. However, because of multiple Coulomb scattering in the space between the MuCS boxes and the TPC, the starting point of the reconstructed track corresponding to the MuCS-triggering cosmic ray does not coincide exactly with the extrapolated intersection point $(x_{\mathrm{MuCS}}$, $y_{\mathrm{MuCS}}$, $z_{\mathrm{MuCS}})$.
 
@@ -311,7 +312,7 @@ where $(x_{\mathrm{reco}},y_{\mathrm{reco}},z_{\mathrm{reco}})$ is the starting 
 
  %We know that the space charge effect can displace the start and end points of the reconstructed tracks by a sensible amount (around 15 cm for points near the cathode), so we correct this displacement with the procedure described in \cite{sce}.
 %A PMT flash is associated with the MuCS signal if it falls within a well-known window with respect to the MuCS trigger.
-Figure \ref{fig:evd} shows a diagram with the MuCS-extrapolated track (black line), the MuCS-tagged track (green line) and the other reconstructed cosmic-ray tracks in the TPC in the same readout window (grey lines). The distance $d$ between the first intersection point and the starting point of the MuCS-tagged track is shown by the red double-headed arrow.
+Figure \ref{fig:evd} shows a diagram with the MuCS-extrapolated track, the MuCS-tagged track and the other reconstructed cosmic-ray tracks in the TPC in the same readout window. The distance $d$ between the first intersection point and the starting point of the MuCS-tagged track is also shown.
 
 \begin{figure}[htbp]
   \begin{center}
@@ -324,42 +325,46 @@ Figure \ref{fig:evd} shows a diagram with the MuCS-extrapolated track (black lin
 
 The data product will then include two different sets of information:
 \begin{itemize}
-  \item MuCS-extrapolated information: a line crossing the entire TPC is extrapolated from the two points given by the MuCS (one for each box). From this extrapolated line it is possible to obtain: (1) the two extrapolated starting angles $\theta$ and $\phi$ of the MuCS, defined in eq. \eqref{eq:angles}, (2) the extrapolated start point $(x_{\mathrm{MuCS}},y_{\mathrm{MuCS}},z_{\mathrm{MuCS}})$ described above, and (3) the extrapolated end point, corresponding to the second intersection between the MuCS-extrapolated track and the TPC, where the track exits. The extrapolated track length $L$ is calculated measuring the difference between the extrapolated start point and the extrapolated end point.
+  \item MuCS-extrapolated information: a line crossing the entire TPC is extrapolated from the two points given by the MuCS (one for each box). From this extrapolated line it is possible to obtain: (1) the two extrapolated starting angles $\theta$ and $\phi$ of the MuCS, defined in eq. \eqref{eq:angles_mucs}, (2) the extrapolated start point $(x_{\mathrm{MuCS}},y_{\mathrm{MuCS}},z_{\mathrm{MuCS}})$ described above, and (3) the extrapolated end point, corresponding to the second intersection between the MuCS-extrapolated track and the TPC, where the track exits. The extrapolated track length $L$ is calculated measuring the difference between the extrapolated start point and the extrapolated end point.
   \item Reconstructed TPC data information: for each MuCS-triggered event, the identified reconstructed starting point $(x_{\mathrm{reco}},y_{\mathrm{reco}},z_{\mathrm{reco}})$ of the MuCS-tagged track is stored.
 \end{itemize}
 
+Since some cosmic-ray muons can trigger the MuCS without hitting the TPC (see red tracks in figure \ref{fig:mucs}), events with an extrapolated length in the TPC $L > 20$ cm are discarded, to ensure that the reconstruction efficiency is not being artificially lowered by including cosmic rays that missed the TPC or crossed it only for a very small path.
+
 \subsection{Monte Carlo sample generation}\label{sec:mcgen}
 
-The Monte Carlo sample used for this work consists of a simulation of cosmic ray events in the MicroBooNE TPC, as described in \cite{cosmic}. The cosmic rays are produced using the CORSIKA \cite{corsika} simulation software. Then, the generated muons are propagated with GEANT4 \cite{geant} and passed through the detector simulation stage. The detector simulation reproduces the detector response as precisely as possible, reflecting the current state of the detector. Some regions of the TPC, for example, contain noisy or unresponsive wires whose position is known and can make the track reconstruction more difficult. Their effect is fully simulated and their impact is discussed in detail in section \ref{sec:wires}.
+The Monte Carlo sample used for this work consists of a simulation of cosmic ray events in the MicroBooNE TPC, as described in \cite{cosmic}. The cosmic rays are produced using the CORSIKA \cite{corsika} simulation software. Then, the generated muons are propagated with GEANT4 \cite{geant} and passed through the detector simulation stage. The detector simulation reproduces the electorn drift, the collection and induction of signals on wires and the electronic response. The simulation includes also information on the state of the detector readout. Some regions of the TPC, for example, contain noisy or unresponsive wires whose position is known and can make the track reconstruction more difficult. The impact of their effect is discussed in detail in section \ref{sec:wires}.
 
 Other known effects, such as the space charge effect, are not currently modeled in the simulation. The space charge effect is created by the build-up of slow-moving positive ions in a detector due to ionization from cosmic rays, leading to a small distortion of the electric field in the detector. This effect leads to a displacement in the reconstructed position of signal ionization electrons in LArTPCs, This effect is corrected in the data with the procedure described in \cite{sce}, which still allows direct comparison with the current Monte Carlo simulation.
 
-The output of the detector simulation stage is fed to the reconstruction chain. A successfully reconstructed track will be associated to the generated cosmic ray.
+The output of the detector simulation stage is fed to the reconstruction chain.
 
 The direction of the simulated cosmic ray is calculated using its starting momentum, given by GEANT4. The starting angles $\theta$ and $\phi$ are defined in this case as:
 
-\begin{align}\label{eq:angles}
+\begin{align}\label{eq:angles_mc}
   \theta = \mathrm{acos}\left(\frac{p_{z}}{p}\right), \quad
   \phi = \mathrm{atan}\left(\frac{p_{y}}{p_{x}}\right),
 \end{align}
 where $p_{x}$, $p_{y}$, $p_{z}$ are the $x$, $y$, $z$ components of the cosmic-ray momentum of magnitude $p$.
 The extrapolated track length $L$ is calculated extrapolating a straight line through the TPC and measuring the distance between the extrapolated start point and the extrapolated end point in the TPC.
 
-This Monte Carlo simulation provides cosmic rays entering the TPC from all possible directions, while the cosmic rays triggering the MuCS can have only certain $\theta$, $\phi$ starting angles due to geometrical constraints of the system. Thus, cosmic rays in the Monte Carlo dataset are selected to match the ($\theta$, $\phi$) parameter space covered by the MuCS data.
+This Monte Carlo simulation provides cosmic rays entering the TPC from all possible directions, while the cosmic rays triggering the MuCS can have only certain $\theta$, $\phi$ starting angles due to geometrical constraints of the system. Thus, cosmic rays in the Monte Carlo dataset are selected to match the ($\theta$, $\phi$) parameter space covered by the MuCS data, measured using the ($\theta$, $\phi$) distribution of the MuCS-extrapolated tracks.
 
 %Our aim is to show that the reconstruction efficiency of simulated cosmic rays, generated all over the TPC, can be successfully compared to the data reconstruction efficiency, obtained placing the MuCS in three different places.
 
 \section{Reconstruction efficiencies}\label{sec:reco}
 
-The MuCS reconstruction efficiency $\epsilon$ is defined as the ratio between the number of events with a reconstructed MuCS cosmic ray and the number of MuCS-triggered events:
+The MuCS reconstruction efficiency $\epsilon$ is defined as the fraction of MuCS-triggered cosmic-ray events that have a reconstructed track in the TPC:
 \begin{equation}\label{eq:eff}
   \epsilon = \frac{\mathrm{N.~of~reco.~MuCS~cosmic\myhyphen ray~events}}{\mathrm{N.~of~MuCS~triggered~events}}.
 \end{equation}
-In a data sample it is not possible to identify with certainty a MuCS cosmic ray and the MuCS-tagged track is defined as the reconstructed track with the closest starting point $(x_{\mathrm{reco}},y_{\mathrm{reco}},z_{\mathrm{reco}})$ to the extrapolated MuCS starting point $(x_{\mathrm{MuCS}},y_{\mathrm{MuCS}},z_{\mathrm{MuCS}})$, as shown in figure \ref{fig:evd}. Since some cosmic rays can trigger the MuCS without hitting the TPC (see red tracks in figure \ref{fig:mucs}), eq. \eqref{eq:eff} includes only the events with an extrapolated length in the TPC $L > 20$ cm, to ensure that the reconstruction efficiency is not being artificially lowered by including cosmic rays that missed the TPC or crossed it only for a very small path.
+In a data sample it is not possible to identify with certainty a MuCS cosmic ray and the MuCS-tagged track is defined as the reconstructed track with the closest starting point $(x_{\mathrm{reco}},y_{\mathrm{reco}},z_{\mathrm{reco}})$ to the extrapolated MuCS starting point $(x_{\mathrm{MuCS}},y_{\mathrm{MuCS}},z_{\mathrm{MuCS}})$, as shown in figure \ref{fig:evd}. Since some cosmic-ray muons can trigger the MuCS without hitting the TPC (see red tracks in figure \ref{fig:mucs}), eq. \eqref{eq:eff} includes only the events with an extrapolated length in the TPC $L > 20$ cm, to ensure that the reconstruction efficiency is not being artificially lowered by including cosmic rays that missed the TPC or crossed it only for a very small path.
 
-For every MuCS-triggered event there are on average 12 reconstructed tracks in the TPC. Therefore, events where the MuCS-triggered cosmic ray is not reconstructed are always associated to one other reconstructed cosmic ray, so it is necessary to enforce a maximum distance $d_{\mathrm{max}}$ between the two points, $(x_{\mathrm{reco}},y_{\mathrm{reco}},z_{\mathrm{reco}})$ and $(x_{\mathrm{MuCS}},y_{\mathrm{MuCS}},z_{\mathrm{MuCS}})$ to reduce misassociations. The number of events with a MuCS-tagged track will then depend on $d_{\mathrm{max}}$.
+In order to limit the accidental misassociation of MuCS-triggered cosmic-ray muons with other nearby reconstructed tracks in the TPC, a selection requirement is placed on the maximum distance $d_{\mathrm{max}}$ between the two points, $(x_{\mathrm{reco}},y_{\mathrm{reco}},z_{\mathrm{reco}})$ and $(x_{\mathrm{MuCS}},y_{\mathrm{MuCS}},z_{\mathrm{MuCS}})$
 
-In order to study the dependence of the number of MuCS-tagged tracks on $d_{\mathrm{max}}$, a dedicated Monte Carlo simulation of a MuCS run is performed and defined as \emph{MuCS Monte Carlo}. Each event of this simulation has one cosmic ray passing through the MuCS boxes and several other cosmic rays hitting the TPC during the same time window.
+%For every MuCS-triggered event there are on average 12 reconstructed tracks in the TPC. Therefore, events where the MuCS-triggered cosmic ray is not reconstructed are always associated to one other reconstructed cosmic ray, so it is necessary to enforce a maximum distance $d_{\mathrm{max}}$ between the two points,  to reduce misassociations. The number of events with a MuCS-tagged track will then depend on $d_{\mathrm{max}}$.
+
+In order to study the dependence of the number of MuCS-tagged tracks on $d_{\mathrm{max}}$, a dedicated Monte Carlo simulation of a MuCS run is performed and defined as \emph{MuCS Monte Carlo}, different from the Monte Carlo sample described in section \ref{sec:mcgen}. Each event of this simulation has one cosmic ray passing through the MuCS boxes and several other cosmic rays hitting the TPC during the same time window.
 
 In the MuCS Monte Carlo the truth information allows to verify whether the MuCS-tagged cosmic ray is a real MuCS cosmic ray or if it is one unassociated reconstructed cosmic ray, which happens to be mis-identified due to the extrapolated starting point distance being closer than $d_{\mathrm{max}}$ because of multiple Coulomb scattering.
 The distance $d$ is defined in this case as:
@@ -480,7 +485,7 @@ This correction factor is verified to be independent of $\theta$, $\phi$ and $L$
 The statistical uncertainty of the correcting factor $D$, 0.1\%, is taken as the systematic uncertainty related to this correction.
 
 \subsubsection{Detector non-uniformities}\label{sec:wires}
-The presence of potential detector non-uniformities can introduce a systematic uncertainty in the measurement of the reconstruction efficiency. In particular, the presence of noisy or unresponsive wires in specific regions of the detector can lower the reconstruction efficiency. The three different MuCS configurations (shown in figure \ref{fig:mucs}) allow to cover different regions of the TPC, providing information on potential non-uniformities.
+The presence of potential detector non-uniformities can introduce a systematic uncertainty in the measurement of the reconstruction efficiency. In particular, the presence of noisy or unresponsive wires in specific regions of the detector can lower the reconstruction efficiency. The three different MuCS configurations (shown in figure \ref{fig:mucs}) cover different regions of the TPC, providing information on potential non-uniformities.
 
 To check if these non-uniformities introduce a systematic effect, the significance $\sigma$ of the differences between the data reconstruction efficiencies measured for two different configurations with the following definition is calculated:
 \begin{equation}
@@ -532,16 +537,16 @@ Moreover, the $\theta$ angle of the MuCS-extrapolated tracks in the cases shown 
   \begin{center}
     \begin{subfigure}{0.3\textwidth}
       \includegraphics[width=\linewidth]{figures/u.png}
-      \caption{Induction (U) plane} \label{fig:u}
+      \caption{Induction ($+60^{\circ}$) plane} \label{fig:u}
     \end{subfigure}
     \begin{subfigure}{0.3\textwidth}
       \includegraphics[width=\linewidth]{figures/v.png}
-      \caption{Induction (V) plane} \label{fig:v}
+      \caption{Induction ($-60^{\circ}$) plane} \label{fig:v}
     \end{subfigure}
     \begin{subfigure}{0.3\textwidth}
       \includegraphics[width=\linewidth]{figures/y.png}
-      \caption{Collection (Y) plane} \label{fig:y}
-    \end{subfigure}    \caption{Event display of a non-reconstructed MuCS cosmic-ray track in the U, V and Y planes, indicated in the white boxes. Orange lines correspond to other TPC reconstructed tracks. The collection plane (Y) shows no reconstructed tracks.} \label{fig:example}
+      \caption{Collection ($+0^{\circle}$) plane} \label{fig:y}
+    \end{subfigure}    \caption{Event display of a non-reconstructed MuCS cosmic-ray track in the three wire planes, indicated in the white boxes. Orange lines correspond to other TPC reconstructed tracks. The collection plane shows no reconstructed tracks.} \label{fig:example}
   \end{center}
 \end{figure}
 
