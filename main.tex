@@ -233,7 +233,7 @@ A set of 32 photomultipliers tubes (PMTs) is placed behind the anode plane to co
 
 The BNB is predominantly composed of muon neutrinos ($\nu_{\mu}$) with a peak neutrino energy of about 0.7 GeV. They can undergo charged-current ($\nu_{\mu}$CC) interactions in the TPC and produce muons. The detector is placed in a pit 6 m below the surface with no overburden. The muon cosmic-ray flux in the MicroBooNE detector is estimated to have a rate of 5.5 kHz, which corresponds to $\approx12$ muons per TPC drift time window of 2.2 ms \cite{cosmic}. The abundant flux of cosmic muons is a source of background to neutrino events and an optimal reconstruction of the cosmic rays in the TPC is therefore crucial.
 
-In order to address the challenges of cosmic-ray background rejection in a surface neutrino experiment, the MicroBooNE detector is equipped with an external Muon Counter System (MuCS). We use this system to develop and demonstrate muon tagging. It also provides an external set of data with which to validate the simulation and reconstruction.
+In order to address the challenges of cosmic-ray background rejection in a surface neutrino experiment, the MicroBooNE detector is equipped with an external Muon Counter System (MuCS). We use this system to develop and demonstrate muon tagging. It also provides an external set of data with the validating simulation and reconstruction.
 
 This article describes a measurement of the reconstruction efficiencies using a dataset of cosmic rays triggered by the MuCS and passing through the MicroBooNE TPC. The goal is to demonstrate that an external cosmic-ray counter can be used to measure the data reconstruction efficiency in MicroBooNE.
 %The description of the MuCS is given in section \ref{sec:proc}. A discussion of the data processing and analysis, as well as the Monte Carlo simulations is presented in section \ref{sec:merging}. Details of the reconstruction efficiency measurements and of the evaluation of the systematic uncertainties are given in section \ref{sec:reco}.
@@ -376,7 +376,7 @@ d = \sqrt{(x_{\mathrm{sim}}-x_{\mathrm{reco}})^2+(y_{\mathrm{sim}}-y_{\mathrm{re
 where $(x_{\mathrm{sim}},y_{\mathrm{sim}},z_{\mathrm{sim}})$ and $(x_{\mathrm{reco}},y_{\mathrm{reco}},z_{\mathrm{reco}})$ are the coordinates of the intersection of the simulated cosmic-ray trajectory with the TPC and of the closest reconstructed track, respectively. Figure \ref{fig:dist} shows the distribution of the distance $d$ between the extrapolated starting point and the closest reconstructed starting point, for both data and MuCS Monte Carlo.
 In the reconstruction efficiency definition for the MuCS Monte Carlo sample, we replace the number of MuCS-triggered events in eq. \eqref{eq:eff} with the number of simulated MuCS events. The efficiency $\epsilon_{\mathrm{tag}}$ of the cut on $d_{\mathrm{max}}$ is defined as
 \begin{equation}
-  \epsilon_{\mathrm{tag}}=\frac{\mathrm{N.~of~events~with~a~reco.~cosmic~ray~within~}d_{\mathrm{max}}}{\mathrm{N.~of~MuCS~triggered~events}}.
+  \epsilon_{\mathrm{tag}}=\frac{\mathrm{events~with~a~reco.~cosmic~ray~within~}d_{\mathrm{max}}}{\mathrm{N.~of~MuCS~triggered~events}}.
 \end{equation}
 It is calculated for the data sample ($\epsilon^{\mathrm{data}}_{\mathrm{tag}}$) and for the MuCS Monte Carlo sample ($\epsilon^{\mathrm{MuCS-MC}}_{\mathrm{tag}}$) by replacing the number of MuCS-triggered events with the number of simulated MuCS events.
 
@@ -588,35 +588,35 @@ The reconstruction efficiencies are calculated for Monte Carlo and data as descr
 \begin{figure}[htbp]
   \begin{subfigure}{0.32\textwidth}
     \includegraphics[width=\linewidth]{figures/e_theta_phi.pdf}
-    \caption{$(\theta,\phi)$ - Data}
+    \caption{$(\theta,\phi)$ - data}
   \end{subfigure}\begin{subfigure}{0.32\textwidth}
   \includegraphics[width=\linewidth]{figures/theta_phi_mc.pdf}
   \caption{$(\theta,\phi)$ - Monte Carlo}
 \end{subfigure}\begin{subfigure}{0.32\textwidth}
   \includegraphics[width=\linewidth]{figures/theta_phi2.pdf}
-  \caption{$(\theta,\phi)$ - Data/Monte Carlo}
+  \caption{$(\theta,\phi)$ - data/Monte Carlo}
 \end{subfigure}
 \begin{subfigure}{0.32\textwidth}
   \includegraphics[width=\linewidth]{figures/e_theta_l.pdf}
-  \caption{$(\theta,L)$ - Data}
+  \caption{$(\theta,L)$ - data}
 \end{subfigure}\begin{subfigure}{0.32\textwidth}
 \includegraphics[width=\linewidth]{figures/theta_l_mc.pdf}
 \caption{$(\theta,L)$ - Monte Carlo}
 \end{subfigure}\begin{subfigure}{0.32\textwidth}
 \includegraphics[width=\linewidth]{figures/theta_l2.pdf}
-\caption{$(\theta,L)$ - Data/Monte Carlo}
+\caption{$(\theta,L)$ - data/Monte Carlo}
 \end{subfigure}
 \begin{subfigure}{0.32\textwidth}
   \includegraphics[width=\linewidth]{figures/e_phi_l.pdf}
-  \caption{$(\phi,L)$ - Data}
+  \caption{$(\phi,L)$ - data}
 \end{subfigure}\begin{subfigure}{0.32\textwidth}
 \includegraphics[width=\linewidth]{figures/phi_l_mc.pdf}
 \caption{$(\phi,L)$ - Monte Carlo}
 \end{subfigure}\begin{subfigure}{0.32\textwidth}
 \includegraphics[width=\linewidth]{figures/phi_l2.pdf}
-\caption{$(\phi,L)$ - Data/Monte Carlo}
+\caption{$(\phi,L)$ - data/Monte Carlo}
 \end{subfigure}
-\caption{Two-dimensional reconstruction efficiencies for data (left), Monte Carlo (center) and their ratio (right). Data errors include systematic effects. Monte Carlo errors are statistical-only.}\label{fig:2d}
+\caption{Two-dimensional reconstruction efficiencies for data (left), Monte Carlo (center) and their ratio (right). Data uncertainties include systematic effects, while Monte Carlo uncertainties are statistical-only.}\label{fig:2d}
 \end{figure}
 
 \begin{figure}[htbp]
@@ -697,9 +697,9 @@ This material is based upon work supported by the following: the U.S. Department
 
   \bibitem{mucs} S.R. Soleti, \textit{The Muon Counter System for the MicroBooNE experiment}, eConf C151216, \texttt{\href{https://arxiv.org/abs/1604.07858}{[arXiv:1604.07858 [physics.ins-det]]}}.
 
-  \bibitem{pandora} R. Acciarri et al. [MicroBooNE Collaboration], \textit{The Pandora multi-algorithm approach to automated pattern recognition in LAr TPC detectors}, 2016  [\href{http://www-microboone.fnal.gov/publications/publicnotes/index.html}{MICROBOONE-NOTE-1015-PUB}].
+  %\bibitem{pandora} R. Acciarri et al. [MicroBooNE Collaboration], \textit{The Pandora multi-algorithm approach to automated pattern recognition in LAr TPC detectors}, 2016  [\href{http://www-microboone.fnal.gov/publications/publicnotes/index.html}{MICROBOONE-NOTE-1015-PUB}].
 
-  %\bibitem{pandora} J.~S.~Marshall and M.~A.~Thomson, \textit{The Pandora Software Development Kit for Pattern Recognition}, Eur.\ Phys.\ J.\ C 75, no. 9, 439 (2015) \texttt{doi:10.1140/epjc/s10052\-015-3659-3} \texttt{[\href{https://arxiv.org/abs/1506.05348}{data-an/1506.05348}]}.
+  \bibitem{pandora} J.~S.~Marshall and M.~A.~Thomson, \textit{The Pandora Software Development Kit for Pattern Recognition}, Eur.\ Phys.\ J.\ C 75, no. 9, 439 (2015) \texttt{doi:10.1140/epjc/s10052\-015-3659-3} \texttt{\href{https://arxiv.org/abs/1506.05348}{[arXiv:1506.05348 [physics.data-an]]}}.
 
   \bibitem{corsika} D.~Heck et al.,
   \textit{CORSIKA: A Monte Carlo code to simulate extensive air showers}, 1998,
