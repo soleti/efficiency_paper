@@ -236,7 +236,7 @@ The detector is placed in a pit 6 m below the surface with no overburden. The mu
 In order to address the challenges of cosmic-ray background rejection in a surface neutrino experiment, the MicroBooNE detector is equipped with an external muon counter system (MuCS). We use this system to develop and demonstrate muon tagging. It also provides an external set of data with the validating simulation and reconstruction.
 %This article describes a measurement of the reconstruction efficiencies using a dataset of cosmic rays triggered by the MuCS and passing through the MicroBooNE TPC. The goal is to demonstrate that an external cosmic-ray counter can be used to measure the data reconstruction efficiency in MicroBooNE.
 %The description of the MuCS is given in section \ref{sec:proc}. A discussion of the data processing and analysis, as well as the Monte Carlo simulations is presented in section \ref{sec:merging}. Details of the reconstruction efficiency measurements and of the evaluation of the systematic uncertainties are given in section \ref{sec:reco}.
-In the future, the method described in this paper can be adapted to use the data coming from the cosmic ray tagger (CRT) system \cite{crt}, installed in March 2017. It is able to tag around $80\%$ of the cosmic rays traversing the MicroBooNE LArTPC. The larger data sample provided by the CRT will provide a better coverage of the detector regions and measure efficiency-corrected quantities for the whole detector, such as the cosmic-ray flux in the TPC.
+In the future, the method described in this paper can be adapted to use the data coming from the cosmic ray tagger (CRT) system \cite{crt}, installed in March 2017. It is able to tag around $80\%$ of the cosmic rays traversing the MicroBooNE LArTPC, which is one order of magnitude more than the coverage provided by the MuCS. The larger data sample provided by the CRT will provide a better coverage of the detector regions and measure efficiency-corrected quantities for the whole detector, such as the cosmic-ray flux in the TPC.
 
 
 %The data reconstruction efficiency is calculated comparing the number of events triggered by the MuCS and the number of events with a MuCS-compatible reconstructed track in the TPC.
@@ -446,7 +446,7 @@ The Monte Carlo cosmic-ray reconstruction efficiency is defined as
 This Monte Carlo sample contains cosmic rays generated over the entire TPC volume, therefore  any dependence of $\epsilon_{\mathrm{MC}}$ on the position of the cosmic ray in the TPC will cancel. The MuCS dataset, however, covers only three regions of the detector, shown in figure~\ref{fig:mucs}. %to verify if the data reconstruction efficiency, measured in specific locations of the detector, is valid throughout the detector.
 
 %In an ideal TPC, the reconstruction efficiency for a cosmic ray depends only on the number of hit wires, which is given by the direction and the length of the track in the TPC.
-A cosmic ray with a longer path in the TPC will correspond in general to a larger number of hit wires and thus to a higher reconstruction efficiency \cite{pandora}. The reconstruction efficiency depends also on the direction of the cosmic ray, since cosmic rays parallel to the wires of one plane (0, $\pm60^{\circ}$ with respect to the $y$ axis) will generate fewer hits in that particular plane, making the track reconstruction more difficult.
+A cosmic ray with a longer path in the TPC will correspond in general to a larger number of hit wires and thus to a higher reconstruction efficiency \cite{pandora2}. The reconstruction efficiency depends also on the direction of the cosmic ray, since cosmic rays parallel to the wires of one plane (0, $\pm60^{\circ}$ with respect to the $y$ axis) will generate fewer hits in that particular plane, making the track reconstruction more difficult.
 We therefore express the data and the Monte Carlo reconstruction efficiencies, $\epsilon_{\mathrm{data}}$ and $\epsilon_{\mathrm{MC}}$, as a function of the starting spherical angles $\theta$, $\phi$ and of the expected track length $L$ in the TPC, as described in section~\ref{sec:data_proc}.
 
 The efficiency is plotted as a three-dimensional histogram, where each bin corresponds to a particular combination of the $\theta$, $\phi$, and $L$ variables. Bin width is chosen large enough to have a statistical uncertainty $<10\%$ for every ($\theta$, $\phi$, $L$) bin. The same $P/A$ correction factor is applied to every bin.
@@ -663,6 +663,8 @@ A method to evaluate the number of reconstructed MuCS cosmic rays is studied usi
 
 The data reconstruction efficiency, calculated by comparing the number of MuCS-triggered events with the number of events with a reconstructed MuCS cosmic ray, is measured as a function of the cosmic-ray starting angles $\theta$, $\phi$ and the expected length in the TPC, $L$. The data reconstruction efficiency is consistent with the Monte Carlo reconstruction efficiency. The obtained overall reconstruction efficiency is high. We are able to reconstruct a MuCS cosmic ray with an efficiency of $\approx97\%$.
 
+The reconstruction efficiency, as defined in this analysis, only assesses whether a track is found and reconstructed. The efficiency here does not quantify the overall quality of the track reconstruction, such as correct track length or angle; this will be addressed in a future publication.
+
 We also analyze systematic uncertainties that affect the data reconstruction efficiency. The fraction of muons triggering the MuCS that decay or are captured before reaching the TPC is~$\approx1.0\%$, according to a Monte Carlo simulation.  This factor is taken into account in the measurement of the data reconstruction efficiency.
 The MuCS data are acquired with the two boxes placed in three different positions, covering different parts of the detector. The detector non-uniformities induce a non-negligible effect in the measurement of the data reconstruction efficiency. The related systematic uncertainty is $1.1\%$.
 
@@ -688,7 +690,7 @@ This material is based upon work supported by the following: the U.S. Department
 % We suggest to always provide author, title and journal data:
 % in short all the informations that clearly identify a document.
 \begin{thebibliography}{99}
-  \bibitem{detector} R.~Acciarri {\it et al.} [MicroBooNE Collaboration],
+  \bibitem{detector} R.~Acciarri et al. [MicroBooNE Collaboration],
   \textit{Design and Construction of the MicroBooNE Detector,}
   JINST 12 (2017) no.02,  P02017
   \texttt{doi:10.1088/1748-0221/12/02/P02017
@@ -717,6 +719,8 @@ This material is based upon work supported by the following: the U.S. Department
   \bibitem{spacecharge} M.~Mooney, \textit{The MicroBooNE Experiment and the Impact of Space Charge Effects}, Proceedings of the Meeting of the APS Division of Particles and Fields, 2015 \texttt{\href{https://arxiv.org/abs/1511.01563}{[arXiv:1511.01563 [physics.ins-det]]}}.
 
   \bibitem{besiii} W.~L.~Yuan et al., \textit{Study of tracking efficiency and its systematic uncertainty from $J/\psi \to p \overline{p} \pi^+ \pi^-$ at BESIII}, Chin.\ Phys.\ C 40 (2016) no.2,  026201 \texttt{doi:10.1088/1674-1137/40/2/026201}  \texttt{\href{https://arxiv.org/abs/1506.05348}{[arXiv:1507.03453 [physics.hep-ex]]}}.
+
+  \bibitem{pandora2} R.~Acciarri et al. [MicroBooNE Collaboration], \textit{The Pandora multi-algorithm approach to automated pattern recognition of cosmic-ray muon and neutrino events in the MicroBooNE detector}, in preparation.
 
   \bibitem{pdg} C.~Patrignani et al. [Particle Data Group Collaboration], \textit{Review of Particle Physics}, Chin.\ Phys.\ C 40 (2016) no.10,  100001 \texttt{doi:10.1088/1674-1137/40/10/100001}.
 
