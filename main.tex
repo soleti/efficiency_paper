@@ -199,7 +199,7 @@
 \abstract{The MicroBooNE detector is a liquid argon time projection chamber at Fermilab designed to study short-baseline neutrino oscillations and neutrino-argon interaction cross-section. Due to its location near the surface, a good understanding of cosmic muons as a source of backgrounds is of fundamental importance for the experiment. We present a method of using an external 0.5 m (L) x 0.5 m (W) muon counter stack, installed above the main detector, to determine the cosmic-ray reconstruction efficiency in MicroBooNE.
 Data are acquired with this external muon counter stack placed in three different positions, corresponding to cosmic rays intersecting different parts of the detector.
 %The reconstruction of the tracks is performed using the multi-algorithm Pandora framework.
-The data reconstruction efficiency of tracks in the detector is found to be $\epsilon_{\mathrm{data}}=(97.1\pm0.1~(\mathrm{stat}) \pm 1.4~(\mathrm{sys}))\%$, in good agreement with the Monte Carlo reconstruction efficiency $\epsilon_{\mathrm{MC}} = (97.3\pm0.1)\%$.
+The data reconstruction efficiency of tracks in the detector is found to be $\epsilon_{\mathrm{data}}=(97.1\pm0.1~(\mathrm{stat}) \pm 1.4~(\mathrm{sys}))\%$, in good agreement with the Monte Carlo reconstruction efficiency $\epsilon_{\mathrm{MC}} = (97.4\pm0.1)\%$.
 This analysis represents a small-scale demonstration of the method that can be used with future data coming from a recently installed cosmic-ray tagger system, which will be able to tag $\approx80\%$ of the cosmic rays passing through the MicroBooNE detector.}
 
 \keywords{Time projection chambers; Pattern recognition, cluster finding, calibration and fitting methods; Performance of High Energy Physics Detectors}
@@ -241,7 +241,7 @@ In the future, the method described in this paper will be applied to the data co
 %The data reconstruction efficiency is calculated comparing the number of events triggered by the MuCS and the number of events with a MuCS-compatible reconstructed track in the TPC.
 %The Monte Carlo reconstruction efficiency is measured by comparing the number of generated cosmic rays with the number of reconstructed tracks, using simulated cosmic rays hitting the entire TPC.
 %The reconstruction efficiency is expressed as a function of the cosmic-ray starting angle (given by the spherical angles $\theta$ and $\phi$ relative to the beam direction $+z$) and of the expected length $L$ of its path in the TPC. More details on the Monte Carlo generation can be found in section \ref{sec:merging}.%, assuming it is a minimum-ionizing particle (MIP).
-%Using the Pandora pattern-recognition software framework \cite{pandora}, the overall reconstruction efficiency is $97.1\pm0.1\thinspace(\mathrm{stat}) \pm 1.4\thinspace(\mathrm{sys})\thinspace\%$ for data and $97.3\pm0.1\thinspace\%$ for Monte Carlo.
+%Using the Pandora pattern-recognition software framework \cite{pandora}, the overall reconstruction efficiency is $97.1\pm0.1\thinspace(\mathrm{stat}) \pm 1.4\thinspace(\mathrm{sys})\thinspace\%$ for data and $97.4\pm0.1\thinspace\%$ for Monte Carlo.
 
 \section{The Muon Counter Stack}\label{sec:proc}
 The Muon Counter Stack, described in detail in ref. \cite{mucs}, consists of two sets of planar modules placed into two separate, light-tight boxes. The upper and lower boxes are placed $2.75$~m and $2.03$~m above the TPC, respectively. Their position is known to a precision of $0.5$~cm. Each planar module is constructed using 48 scintillator strips of $4$~cm width, $48$~cm length, and $2$~cm thickness. The scintillator strips are arranged into a pair of bi-layers, each 12 strips wide and oriented perpendicular to each other. The overall setup is shown in figure~\ref{fig:boxes}.
@@ -351,7 +351,7 @@ The direction of the simulated cosmic ray is given by its momentum when it enter
 where $p_{x}$, $p_{y}$, $p_{z}$ are the $x$, $y$, $z$ components of the cosmic-ray momentum of magnitude $p$.
 The track length $L$ is calculated by extrapolating a straight line through the TPC in the $\theta, \phi$ direction and measuring the distance from the true entering point to the extrapolated exiting point in the TPC.
 
-This Monte Carlo simulation provides cosmic rays entering the TPC from all possible directions, while the cosmic rays triggering the MuCS can have only $\theta$, $\phi$ starting angles within the geometrical constraints of the system. Thus, cosmic rays in the Monte Carlo dataset are selected to match the ($\theta$, $\phi$) parameter space covered by the MuCS-extrapolated tracks in data.
+This Monte Carlo simulation provides cosmic rays entering the TPC from all possible directions, while the cosmic rays triggering the MuCS can have only $\theta$, $\phi$ starting angles within the geometrical constraints of the system. Thus, cosmic rays in the Monte Carlo dataset are selected to match the ($\theta$, $\phi$) parameter space covered by the MuCS-extrapolated tracks in data and the Monte Carlo events have been weighted to match the data distributions. 
 
 %Our aim is to show that the reconstruction efficiency of simulated cosmic rays, generated all over the TPC, can be successfully compared to the data reconstruction efficiency, obtained placing the MuCS in three different places.
 
@@ -431,7 +431,7 @@ The chosen value of $d_{\mathrm{max}}$ is $d_{\mathrm{max}}=32~\mathrm{cm}$. Fig
 %     \midrule
 %     Central & & 95.9 & 0.2 & & 96.3 & 0.1 \\
 %     Upstream & & 95.7 & 0.2 & & 96.0 & 0.1 \\
-%     Downstream & & 97.1 & 0.2 & & 97.3 & 0.1 \\
+%     Downstream & & 97.1 & 0.2 & & 97.4 & 0.1 \\
 %     \midrule
 %     Overall & & 96.1 & 0.1 & & 96.3 & 0.1 \\
 %     \bottomrule
@@ -465,7 +465,7 @@ This correction factor does not show a dependence of $\theta$, $\phi$, and $L$ w
 Figure~\ref{fig:3d} shows both the corrected data and the Monte Carlo reconstruction efficiency in the 3D phase space $\theta, \phi, L$, calculated as described in section \ref{sec:merging}. The average reconstruction efficiencies for the data and Monte Carlo samples considering only statistical uncertainties, are
 \begin{align}
 \epsilon_{\mathrm{data}}^{\mathrm{corr}} &= (97.1 \pm 0.1)\%\\
-\epsilon_{\mathrm{MC}} &= (97.3 \pm 0.1)\% \nonumber
+\epsilon_{\mathrm{MC}} &= (97.4 \pm 0.1)\% \nonumber
 \end{align}
 for data and Monte Carlo, respectively.
 
@@ -604,7 +604,7 @@ The reconstruction efficiencies for the Monte Carlo and data samples are calcula
   \includegraphics[width=\linewidth]{figures/theta_phi_mc.pdf}
   \caption{$(\theta,\phi)$ - Monte Carlo}
 \end{subfigure}\begin{subfigure}{0.32\textwidth}
-  \includegraphics[width=\linewidth]{figures/theta_phi2.pdf}
+  \includegraphics[width=\linewidth]{figures/theta_phi.pdf}
   \caption{$(\theta,\phi)$ - data/Monte Carlo}
 \end{subfigure}
 \begin{subfigure}{0.32\textwidth}
@@ -614,7 +614,7 @@ The reconstruction efficiencies for the Monte Carlo and data samples are calcula
 \includegraphics[width=\linewidth]{figures/theta_l_mc.pdf}
 \caption{$(\theta,L)$ - Monte Carlo}
 \end{subfigure}\begin{subfigure}{0.32\textwidth}
-\includegraphics[width=\linewidth]{figures/theta_l2.pdf}
+\includegraphics[width=\linewidth]{figures/theta_l.pdf}
 \caption{$(\theta,L)$ - data/Monte Carlo}
 \end{subfigure}
 \begin{subfigure}{0.32\textwidth}
@@ -624,7 +624,7 @@ The reconstruction efficiencies for the Monte Carlo and data samples are calcula
 \includegraphics[width=\linewidth]{figures/phi_l_mc.pdf}
 \caption{$(\phi,L)$ - Monte Carlo}
 \end{subfigure}\begin{subfigure}{0.32\textwidth}
-\includegraphics[width=\linewidth]{figures/phi_l2.pdf}
+\includegraphics[width=\linewidth]{figures/phi_l.pdf}
 \caption{$(\phi,L)$ - data/Monte Carlo}
 \end{subfigure}
 \caption{Two-dimensional representation of reconstruction efficiencies for data (left), Monte Carlo (center) and their ratio (right). Data uncertainties include systematic effects, while Monte Carlo uncertainties are statistical-only.}\label{fig:2d}
@@ -633,15 +633,15 @@ The reconstruction efficiencies for the Monte Carlo and data samples are calcula
 \begin{figure}[htbp]
   \begin{center}
     \begin{subfigure}{0.61\textwidth}
-      \includegraphics[width=\linewidth]{figures/theta2.pdf}
+      \includegraphics[width=\linewidth]{figures/theta.pdf}
       \caption{$\theta$} \label{fig:theta}
     \end{subfigure}
     \begin{subfigure}{0.61\textwidth}
-      \includegraphics[width=\linewidth]{figures/phi2.pdf}
+      \includegraphics[width=\linewidth]{figures/phi.pdf}
       \caption{$\phi$} \label{fig:phi}
     \end{subfigure}
     \begin{subfigure}{0.61\textwidth}
-      \includegraphics[width=\linewidth]{figures/l2.pdf}
+      \includegraphics[width=\linewidth]{figures/l.pdf}
       \caption{$L$} \label{fig:l}
     \end{subfigure}
     \caption{Monte Carlo (red line) and data (black points) reconstruction efficiency as a function of the starting angles $\theta$, $\phi$ and the extrapolated track length $L$. Data uncertainty bars include statistical uncertainties and systematic effects, while Monte Carlo uncertainties are statistical-only.}\label{fig:1d}
@@ -655,7 +655,7 @@ The reconstruction efficiency increases with the expected track length $L$ in th
 The average reconstruction efficiencies for the data and Monte Carlo samples considering the systematic uncertainties, added in quadrature, in the analysis of the data are
 \begin{align}
 \epsilon_{\mathrm{data}}^{\mathrm{corr}} &= (97.1 \pm 0.1~\mathrm{(stat)} \pm 1.4~\mathrm{(sys)})\%,\\
-\epsilon_{\mathrm{MC}} &= (97.3 \pm 0.1~\mathrm{(stat)})\%,\nonumber
+\epsilon_{\mathrm{MC}} &= (97.4 \pm 0.1~\mathrm{(stat)})\%,\nonumber
 \end{align} for data and Monte Carlo, showing good agreement within uncertainties.
 
 \section{Conclusions}
@@ -665,7 +665,7 @@ We present results using data from a small muon counter (the MuCS), placed above
 %A sample of $\sim$20000 MuCS-triggering cosmic muons has been identified and the data coming from the MuCS has been merged with the data coming from the main detector.
 A method to evaluate the number of reconstructed MuCS cosmic rays is studied using a dedicated Monte Carlo simulation.
 
-The data reconstruction efficiency, calculated by comparing the number of MuCS-triggered events with the number of events with a reconstructed MuCS cosmic ray, is measured as a function of the cosmic-ray starting angles $\theta$, $\phi$ and the expected length in the TPC, $L$. The overall reconstruction efficiency obtained is $\epsilon_{\mathrm{data}}=(97.1 \pm 0.1~\mathrm{(stat)} \pm 1.4~\mathrm{(sys)})\%$ and $\epsilon_{\mathrm{MC}} = (97.3 \pm 0.1~\mathrm{(stat)})\%$ for data and Monte Carlo, respectively. The two values are consistent within the uncertainties.
+The data reconstruction efficiency, calculated by comparing the number of MuCS-triggered events with the number of events with a reconstructed MuCS cosmic ray, is measured as a function of the cosmic-ray starting angles $\theta$, $\phi$ and the expected length in the TPC, $L$. The overall reconstruction efficiency obtained is $\epsilon_{\mathrm{data}}=(97.1 \pm 0.1~\mathrm{(stat)} \pm 1.4~\mathrm{(sys)})\%$ and $\epsilon_{\mathrm{MC}} = (97.4 \pm 0.1~\mathrm{(stat)})\%$ for data and Monte Carlo, respectively. The two values are consistent within the uncertainties.
 
 The reconstruction efficiency presented here only assesses whether a track is found and reconstructed. The efficiency here does not quantify the overall quality of the track reconstruction in the TPC, such as the correctness of the track length or angle; this will be addressed in a future publication.
 
