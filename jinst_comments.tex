@@ -1,0 +1,218 @@
+\documentclass[review,number,sort&compress]{article}
+
+
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{textcomp}
+\usepackage{lineno}
+
+%\linenumbers
+\title{Measurement of cosmic-ray reconstruction efficiencies in the MicroBooNE LArTPC using a small external cosmic-ray counter}
+\author{MicroBooNE collaboration}
+\begin{document}
+\maketitle
+
+\noindent Dear Referees,
+
+thank you for thoroughly reviewing our paper. We tried to address all of your questions and comments. The main issue is the lack of information about the space-charge effect and its correction. We added few sentences in the text and added a reference to a MicroBooNE public note in the comments which describes in detail the procedure adopted to measure and correct this effect.
+
+We hope our changes have improved the overall quality and clarity of the paper and we look forward having your feedback. 
+
+\noindent Best regards,\\
+\indent Roberto on behalf of the MicroBooNE collaboration.
+
+
+\section{\bf Referee 1}
+
+
+
+\begin{enumerate}
+
+\item \emph{Page 2. Last sentence.
+``The better coverage''
+I am not sure I understand this sentence. Please, clarify, what you meant here.}
+
+We mean that the CRT covers a region of the TPC much larger than the one covered by the MuCS, therefore detecting a much larger fraction of the cosmic rays hitting the TPC. We changed it from ``The better coverage'' to ``This increased coverage of the incoming cosmic-ray flux''.
+
+\item \emph{The three configurations correspond to
+It is not clear what each configuration corresponds to. Please, enumerate: configuration 1 ? etc.}
+
+Enumeration added.
+
+
+\item \emph{Page 3, last paragraph and Figure 3.
+Figure 3 does not show what it is said to show. Please, replace this figure with (or add another figure with) a more appropriate diagram that would show muon hit positions and muon tracks.}
+
+Figure 3 shows the three MuCS configurations with the boxes in three different places, with a simulation of the cosmic rays going hitting the TPC (brown tracks) and of the cosmic rays missing the TPC (red tracks). We changed the sentences to make it clearer and added some labels to the Figure.
+
+\item \emph{What is the distortion that the authors are talking about? Why does this lead to a vertical displacement of the tracks? Please, explain and provide more details.
+You also need to explain the diffusion which, I think, plays an important role here.}
+
+There was indeed a missing sentence. We added this small paragraph: ``The build-up of slow-moving positive ions in a detector due to ionization from cosmic rays leads to a small distortion of the electric field in the detector (space-charge effect [10]). This effect causes a displacement in the reconstructed position of signal ionization electrons in LArTPCs.''. Diffusion in the MicroBooNE detector is quite small. At 273 V/cm, the diffusion is expected to be in the order of 0.1~mm$^{2}$ at maximum drift (V.M. Azhev and I.V. Timoshkin, IEEE Trans. Dielectrics and Electrical Insulation 5, 450, (1998)).
+
+\item \emph{Page 5. First paragraph.
+Was there any calibration, for example with a radioactive source, done to justify the statements here?}
+
+We used a sample of crossing muons triggered by the MuCS and specified this in the text.
+
+\item \emph{Page 6.
+Subsection 3.1 is the only subsection in Section 3. This is not needed unless you introduce another subsection.}
+
+Subsection ``Data sample reduction'' added at the beginning.
+
+\item \emph{Page 6. Section 3.1, paragraph 1.
+You need more details about simulations here.
+What version of CORSIKA and what options were used?
+What version of GEANT4 and what physics list? Was this integrated into LArSoft?}
+
+
+We used CORSIKA 7.4003 and GEANT 4.9.6 with the physics list QGSP\textunderscore BIC. The two frameworks were integrated in LArSoft. We added a sentence to specify that.
+
+\item \emph{Section 4.
+How is the accuracy of the reconstruction checked? Do you count any track independently of the reconstruction accuracy in Eq. (4.1)?}
+
+We didn't check the accuracy or the quality of the reconstruction. The scope of the paper is to measure the ``finding'' efficiency of a cosmic ray. We added this sentence to section 4: ``The efficiency here does not quantify the accuracy of the track reconstruction in the TPC, such as the correctness of the track length or angle.''.
+
+\item \emph{Page 8.
+Explain the choice of $d_{max} = 32$~cm. Why not 40cm or 45 cm?}
+
+We modified this sentence on Page 8: ``Figure 6 shows that the d, P and A distributions are constant around $d_{max} = 32$~cm, and the ratio P/A
+is $\approx$1. Therefore, we choose 32 cm as the value of $d_{max}$. However, different values could be used.''
+
+\item \emph{Page 9. The reference to Figure 3 does not help. Please, change figure 3.}
+
+We added labels to figure 3.
+
+\item \emph{Page 9. Paragraph 3.
+``The efficiency is plotted'' - where?}
+In figure 7, words added to the text.
+
+\item \emph{The fraction D is measured - I do not think it was measured; it was calculated from MC.}
+
+Corrected.
+
+\item \emph{13. Page 9. Last paragraph.
+Please, explain what thickness of materials muons cross. What is the fraction of muon decay on flight in air?}
+
+The fraction is $1.0$~\%. We added this sentence to the paragraph: ``The muons travel on average $\approx3$~m between the top MuCS panel and the TPC: they cross approximately 10 cm of scintillator material, 2.5~m of air, 2~cm of steel and 0.5~m of liquid argon.''
+
+\item \emph{Page 10. The split of sections into subsections looks absolutely random. Why does 4.1 start in the middle of Section 4?
+I suggest the paper structure should be re-examined. If a section, lets say Section 4, needs to be split into several subsections, then the subsection 4.1 should start immediately after the start of Section 4, followed by 4.2, 4.3 etc. The rules for structuring papers are well known and should always be followed.}
+
+Thank you for the correction. The structure of Section 4 has been changed, introducing a 4.1 at the beginning.
+
+\item \emph{Page 10. Section 4.1.1.
+There is no detailed explanation of the procedure to correct for space-charge effect anywhere. Please, add.}
+
+The details of how the correction is calculated and applied is quite tedious. Since it is well described in a separate Public Note from MicroBooNE (\textit{Study of Space Charge Effects in MicroBooNE}, \url{https://www-microboone.fnal.gov/publications/publicnotes/MICROBOONE-NOTE-1018-PUB.pdf}) and 
+since a full paper on the space-charge effect is under preparation, we have added a sentences here and in the previous section: ``We correct the reconstructed track end points in the TPC vertically to lie on the boundary of the TPC''.
+
+\item \emph{Page 11, subsection 4.1.3 and other subsections.
+What is the systematic uncertainty on the flux of low-energy (and stopping) muons? It is definitely much higher than 1\%, and very much likely higher than 10\%. How does this uncertainty affect the results? Please, provide a comparison of simulations with data and quantify this uncertainty.}
+
+Stopping muons in the detector are not an issue for this analysis since
+the method address the efficiency of ?finding?  triggered cosmic rays (as discussed in comment 8 above). The stopping muons are still used in our sample. The only effect would come in the interpretation of the ``extrapolated length'', where for stopping muons the ``real length'' and the extrapolated length will not be the same. We added a sentence in section 4.2.3 to avoid the confusion.
+
+
+\item \emph{Page 11, subsection 4.1.4.
+What is the energy spectrum of muons that was used for the simulation? How were muons (or muon events identified)? If there are two particles in an atmospheric shower/cascade, hitting the muon counters and mimicking a single muon, How were these events dealt with?}
+
+The muons simulated are from  the cosmic ray flux spectrum, covering all energies with the appropriate flux, generated by CORSIKA from primary cosmic rays. In our analysis, we use the full CORSIKA output of all cosmic-ray induced particles in the air showers and we select the muons that hit the MuCS.  We added a sentence is section 3.1 to describe this better. Since our trigger requirement in the MuCS requires that both boxes are triggered with a threshold, the probability to have two cosmic rays in the same readout window of 2.2 ms is 0.002$\%$ for our 3 Hz trigger rate and therefore negligible for our study. 
+As described in Section 4.2.5, we also tested the sampling of the muons in that spectrum to ensure that we did not introduce a bias.
+
+\item \emph{Page 12, figure 8. 
+The caption does not make much sense. What is the colour scheme in (a)? What are the points in (b)?}
+
+We changed Figure 8 to make it clearer.
+
+\item \emph{Page 12, paragraph 1.
+Steeply falling spectrum of cosmic rays ? this is a very dubious statement. What particles? Muons? The spectrum has the mean energy around 7-8 GeV (3-4 GeV at vertical). The spectrum does not fall steeply until high energies, well in excess of 10 GeV.}
+
+We agree that steeply falling is not entirely correct. We removed the word.
+
+\item \emph{Page 12, section 4.2, first paragraph.
+It is strange to see a reference to the Section within a subsection of the same Section. Please, specify what you are actually referring to. Eq. (4.1), as described in the paper, does not require accurate track reconstruction.}
+
+We added a subsection 4.1 at the beginning. As specified earlier, we do not make any requirement on the \emph{quality} of the reconstructed track, but we only measure the efficiency of \emph{finding} a reconstructed track.
+
+\item \emph{Page 12, section 4.2. Eq. (4.12)
+What are the selection criteria here, in particular on the length of the muon track?}
+
+As specified in section 3.1 we require an extrapolated track length of 20 cm. We added a sentence here to make it clearer.
+
+\item \emph{Page 13. Figure 9.
+Why could not these tracks be reconstructed? Please, explain.}
+
+The tracks could not be reconstructed because in one of the induction planes the cosmic ray goes through a region with noisy or unresponsive wires and it is also parallel to the collection plane wires. Thus, the algorithm does not have enough hits to reconstruct the track. We added a sentence to the caption of the figure.
+
+\item \emph{Conclusions.
+This section is too long. I suggest to move some descriptions to previous sections.}
+
+We removed the paragraph describing in detail the systematic uncertainties.
+
+\item \emph{Page 12. Conclusions, 1st paragraph.
+Only muon events were considered so far but cosmic rays at the surface contain also neutrons, protons and the soft component. There is no discussion of these events. Please, add a discussion of how these events can intervene into your analysis and simulations.}
+
+We added a sentence this sentence: ``In our analysis, we mention only cosmic-muons. However, the results apply to any minimum-ionizing particles such as pions. The MuCS setup has a gap of 80 cm between the two boxes, and our trigger requires a particle to go through both boxes with a clean hit topology. This requirement cannot be satisfied by photons and neutrons. The fraction of cosmic protons and pions passing through the MuCS and reaching the TPC is, compared to muons, 0.04\% and 0.02\%, respectively, and therefore negligible in our analysis.''
+
+\item \emph{Page 14, 2nd paragraph.
+The comments about reconstruction efficiency should be mentioned earlier.}
+
+We moved the paragraph earlier and we mentioned this also before in the text of the article.
+
+\item \emph{Where does the figure (muons triggering MUCS and decay) of 1\% come from? Please, justify all numbers quoted.
+Why is the non-uniformity effect equal to 1\%?}
+
+The percentage of muons triggering the MuCS and decaying is 1\% as calculated from the Monte Carlo simulation described in sec. 4.2.3. The non-uniformity effect has been calculated in sec. 4.2.4. We specified that in the text.
+
+\end{enumerate}
+
+
+\section{\bf Referee 2}
+
+\begin{enumerate}
+\item \emph{The discussion of reconstruction in Section 3, p. 4 needs to be expanded. The current version only references the PANDORA framework, with no summary of what is done. This paper is not primarily about the reconstruction algorithm, but characterizes its performance. A short summary should be provided. As an example, performance degradation for tracks parallel to the collection plane wires is discussed in Section 4.1.4, but the statement that tracks can only be reconstructed by the algorithm if they form an angle with the collection plane wires nowhere appears. The reader is left wondering.}
+
+The details of the Pandora framework are described in the paper \textit{The Pandora multi-algorithm approach to automated pattern recognition of cosmic-ray muon and neutrino events in the MicroBooNE detector}, \href{https://arxiv.org/abs/1708.03135}{\texttt{[1708.03135 [physics.hep-ex]]}}, we added the reference. In addition, we added a sentence describing the framework: ``The Pandora reconstruction produces a list of two-dimensional clusters, that represent continuous, unambiguous lines of hits. Thus, cluster-merging algorithms identify associations between multiple clusters. The three-dimensional track reconstruction then collects the two-dimensional clusters from the three readout planes that represent individual, track-like particles.''
+
+\item \emph{The extremely interesting question of distortions at the detector boundaries is mentioned in Section 3, pp. 4 and 5. No quantitative statement is provided, and the only reference is to a conference proceeding. There should be a statement of the size of the effect, and possibly a plot.}
+
+We added a short paragraph describing the nature of the space-charge effect and its magnitude (around 10 cm at the border). You can find more information on the MicroBooNE public note \textit{Study of Space Charge Effects in MicroBooNE}, \url{https://www-microboone.fnal.gov/publications/publicnotes/MICROBOONE-NOTE-1018-PUB.pdf}.
+
+\item \emph{Section 3 states that the sample is 30000 events. The sample is not defined. Is it for each position of the scintillator or total? If the latter, how many are from each position?}
+
+We acquired around 10000 events per configuration. We added a sentence in the text.
+
+
+\item \emph{In section 4.1.5, the first sentence does not seem to belong to the topic. Please justify. Also in this section, a plot of normal vs. unusual region energy spectra from the MC would be informative.}
+
+We mean that low-energy cosmic rays scatter more, so they are more difficult to reconstruct. We modified the paragraph as:
+
+``The multiple Coulomb scattering of cosmic muons depends on the energy of the cosmic ray [13]. Thus, low energy cosmic rays scatter more and have a higher probability to be outside the $d_{\mathrm{max}}$ region. They are also more difficult to reconstruct, since their path in the TPC is not a straight line.''
+
+\item \emph{The discussion of the cut purity and acceptance occupies a large fraction of the paper in section 4. Its notation is idiosyncratic and somewhat confusing (I was forced to create my own notation to understand the calculation). I strongly suggest putting the technical details and algebra into a later methods section, possibly as a brief appendix, and letting Figure 5 and 6 tell the story.}
+
+We modify the description to try to be clearer. We added that the cut on purity is somewhat arbitrary since any value could be used. But we justified our choice by the fact that the value was convenient due to the flatness of the purity around that value.
+
+\item \emph{Figure 7, in which the reader is asked to judge the volume of the boxes by a 2-dimensional perspective projection, is impossible to extract information from. The tables in Figure 10 are much more informative and should be discussed earlier.}
+
+In the figure 7 we only want to underline the fact that the study has been done as a function of three parameters, and the other plots can be directly derived by that one.
+
+\item \emph{Figure 8 has no scale. One should be provided.}
+
+We included a scale in the figure.
+
+\item \emph{In section 4.1.1 the error associated with space-charge distortions, refers back to the description of Section 3. As noted in comment 2, this description is too vague to be useful.}
+
+We added a a couple of sentences describing how the correction is applied in section 4.1.1 and section 3. More information are available on the MicroBooNE public note \textit{Study of Space Charge Effects in MicroBooNE}, \url{https://www-microboone.fnal.gov/publications/publicnotes/MICROBOONE-NOTE-1018-PUB.pdf}.
+
+\item \emph{Figure 10 is essentially unreadable and should be reformatted. The color scale adds very little information. A regular table would be preferable.}
+
+We think a table would be too large to include all the information shown in the 9 plots. We changed the color scale to make the differences between the bins more visible.
+The numbers in the plots are added to provide extra information to the readers that would want to understand the details on the efficiency. We are hoping that the visual is optimal for conveying this information.
+
+
+\end{enumerate}
+
+
+\end{document}
